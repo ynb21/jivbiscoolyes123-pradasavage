@@ -7,6 +7,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+* {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
 :root {
     --text: #d8d8d8;
     --background: #151515;
