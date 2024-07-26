@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="downfall.wiki #1 private biolink | discord.gg/pMXZ6ZzHqk" />
-    <link href="css/jas.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="ico/logo.png">
-    <title>jas</title>
+    <link href="../biolinks/css/mxden.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../biolinks/ico/logo.png">
+    <title>mxden</title>
     <style>
         #overlay {
             position: fixed;
@@ -31,11 +31,61 @@
             opacity: 0;
         }
 
+        .dia-badge {
+            width: 22px;
+            height: 23px;
+            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 5px white);
+        }
+
         .verified-badge {
             width: 22px;
             height: 23px;
             filter: drop-shadow(0 0 5px rgb(255, 255, 255)) drop-shadow(0 0 10px white);
         }
+
+        .bmw-badge {
+            width: 31px;
+            height: 20px;
+            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
+        }
+
+        .staff-badge {
+            width: 21px;
+            height: 19px;
+            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
+        }
+
+        .discord-s {
+            width: 38px;
+            height: 23px;
+            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
+            margin-left: -4px;
+        }
+
+
+        .steam-s {
+            width: 38px;
+            height: 23px;
+            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
+            margin-left: -4px;
+        }
+
+
+        .roblox-s {
+            width: 38px;
+            height: 23px;
+            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
+            margin-left: -5px;
+        }
+
+
+        .spotify-s {
+            width: 38px;
+            height: 24px;
+            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
+            margin-left: -5px;
+        }
+
 
 
         body {
@@ -102,7 +152,7 @@
         }
 
         .clickable-image img {
-            margin-top: -5.6em;
+            margin-top: -4.6em;
             display: flex;
             justify-content: center;
         }
@@ -114,10 +164,26 @@
             border: 0px solid #ffffff00;
             border-radius: 30px;
         }
+
+        .glowing-text {
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+            animation: glowAnimation 1.5s infinite alternate;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            background-image: url('glitter/white.gif');
+            position: relative;
+            display: inline-block;
+            padding-left: 6px;
+            padding-right: 6px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
-<body style="background-image: url('https://files.catbox.moe/bdx8r7.png'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+<body
+    style="background-image: url('https://files.catbox.moe/reslw6.png'); background-repeat: no-repeat; background-position: center; background-size: cover;">
     <div id="overlay">
         〔Click 2 Enter〕
     </div>
@@ -125,80 +191,78 @@
         <div class="container">
             <div class="audio-bg">
                 <a id="audio-control">
-                    <svg fill='#d8d8d8' width="18px" height="18px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" d="m2 7.5v3c0 .8.6 1.5 1.4 1.5h2.3l3.2 2.8c.1.1.3.2.4.2s.2 0 .3-.1c.2-.1.4-.4.4-.7v-.9l-7.2-7.2c-.5.2-.8.8-.8 1.4zm8 2v-5.8c0-.3-.1-.5-.4-.7-.1 0-.2 0-.3 0s-.3 0-.4.2l-2.8 2.5-4.1-4.1-1 1 3.4 3.4 5.6 5.6 3.6 3.6 1-1z" fill-rule="evenodd" />
+                    <svg fill='#d8d8d8' width="18px" height="18px" viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd"
+                            d="m2 7.5v3c0 .8.6 1.5 1.4 1.5h2.3l3.2 2.8c.1.1.3.2.4.2s.2 0 .3-.1c.2-.1.4-.4.4-.7v-.9l-7.2-7.2c-.5.2-.8.8-.8 1.4zm8 2v-5.8c0-.3-.1-.5-.4-.7-.1 0-.2 0-.3 0s-.3 0-.4.2l-2.8 2.5-4.1-4.1-1 1 3.4 3.4 5.6 5.6 3.6 3.6 1-1z"
+                            fill-rule="evenodd" />
                     </svg>
                 </a>
                 <audio id="myAudio" loop muted>
-                    <source src="audio/jas.mp3" type="audio/mpeg">
+                    <source src="audio/mxden.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="profile-container">
                 <div class="card">
+                    <!-- Profile view count section -->
                     <div class="profile-view-count">
-                        <img src="ico/eye.png" class="eye-icon" alt="Eye Icon">
+                        <img src="../biolinks/ico/eye.png" class="eye-icon" alt="Eye Icon">
                         <span id="view-count">0 Views</span>
                     </div>
                     <div class="pfp">
-                        <img src="pfp/jas.png" alt="Profile Picture">
+                        <img src="pfp/mxden.jpg" alt="Profile Picture">
                     </div>
                     <div class="username">
-                        <a class="glowing-text">jas</a>
+                        <a class="glowing-text">mxden</a>
                     </div>
-                                   
+
 
                     <div class="status">
                         <a id="typewriter" class="typewriter"></a>
                     </div>
                     <!-- Clickable Image Section -->
                     <div class="clickable-image">
-                        <a href="https://discord.com/users/408989428791640074" target="_blank">
-                            <img class="discord-s" src="ico/discord.png" alt="Clickable Image">
+                        <a href="https://discord.com/users/891047319330500630" target="_blank">
+                            <img class="discord-s" src="../biolinks/ico/discord.png" alt="Clickable Image">
                         </a>
-                </div>
+                        <a href="https://steamcommunity.com/id/PassionfruitOT" target="_blank">
+                            <img class="steam-s" src="../biolinks/ico/steam.png" alt="Clickable Image">
+                        </a>
+                        <a href="https://www.roblox.com/users/4943021360/profile" target="_blank">
+                            <img class="roblox-s" src="../biolinks/ico/roblox.png" alt="Clickable Image">
+                        </a>
+                        <a href="https://open.spotify.com/user/3162q34okbllv6izgfpipvsckaoe" target="_blank">
+                            <img class="spotify-s" src="../biolinks/ico/spotify.png" alt="Clickable Image">
+                        </a>
+                    </div>
                     <div class="badges-container">
                         <div class="badges">
+                            <div class="tooltip" data-text="Staff">
+                                <img class="staff-badge" src="../biolinks/ico/staff.png" alt="vulify Badge">
+                            </div>
                             <div class="tooltip" data-text="Verified">
-                                <img class="verified-badge" src="ico/verified.png" alt="vulify Badge">
+                                <img class="verified-badge" src="../biolinks/ico/verified.png" alt="vulify Badge">
+                            </div>
+                            <div class="tooltip" data-text="Premium">
+                                <img class="dia-badge" src="../biolinks/ico/dia.png" alt="Owner Badge">
+                            </div>
+                            <div class="tooltip" data-text="BMW Fan">
+                                <img class="bmw-badge" src="../biolinks/ico/bmw.png" alt="BMW Badge">
                             </div>
                         </div>
-                    </div>
-                    <div class="links-container">
-                        <div class="links" style="display: flex;">
-                            <div class="link" id="connection">
-                                <p>Discord Profile</p>
-                                <div class="link-content">
-                                    <a href="https://clash.gg/r/ZAE" target="_blank">
-                                        <div class="tooltip" data-text="View Link">
-                                            <svg width="20px" height="20px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none">
-                                                <path stroke="#d8d8d8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 3h7v7M27.5 4.5L20 12M17 5H8a3 3 0 00-3 3v16a3 3 0 003 3h16a3 3 0 003-3v-9" />
-                                            </svg>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="link" id="connection">
-                                <p>Discord Server</p>
-                                <div class="link-content">
-                                    <a href="https://discord.gg/bG63tBre" target="_blank">
-                                        <div class="tooltip" data-text="View Link">
-                                            <svg width="20px" height="20px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none">
-                                                <path stroke="#d8d8d8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 3h7v7M27.5 4.5L20 12M17 5H8a3 3 0 00-3 3v16a3 3 0 003 3h16a3 3 0 003-3v-9" />
-                                            </svg>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- YouTube Player Section -->
-    
-                        
                     </div>
                 </div>
+                </a>
             </div>
+        </div>
+
+        <!-- YouTube Player Section -->
+
+
+        </div>
+        </div>
+        </div>
         </div>
     </main>
 
@@ -209,7 +273,7 @@
         const card = document.querySelector(".card");
         const viewCountElem = document.getElementById("view-count");
 
-        audio.volume = 0; // Set volume to 50% initially
+        audio.volume = 0;
 
         audioControl.addEventListener("click", () => {
             if (audio.paused) {
@@ -238,7 +302,7 @@
             }
         }
 
-        setVolume(0.14);
+        setVolume(0.06);
 
         function incrementViewCount() {
             let currentCount = parseInt(viewCountElem.textContent.split(' ')[0]);
@@ -247,7 +311,7 @@
     </script>
 
     <script>
-        var txt = 'my names jas and i like jazz';
+        var txt = 'Pblock On Top';
         var speed = 95;
         var eraseSpeed = 100;
         var forward = true;

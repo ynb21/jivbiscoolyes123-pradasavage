@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User List</title>
+    <link rel="icon" type="image/x-icon" href="biolinks/ico/logo.png">
+    <title>Vulify Users</title>
     <style>
         html, body {
             height: 100%;
@@ -27,7 +28,7 @@
             z-index: 1; 
         }
 
-        .search-container:focus {
+        .search-container input:focus {
             outline: none;
         }
 
@@ -135,7 +136,8 @@
             padding: 10px;
             margin-bottom: 10px;
             border-radius: 5px; 
-            cursor: pointer; 
+            cursor: pointer;
+            width: 200;
             transition: background-color 0.3s ease, transform 0.3s ease;
             display: flex;
             align-items: center;
@@ -145,14 +147,20 @@
             font-size: 0.9em;
         }
         .owner li {
+            width: 200;
             background-color: rgba(68, 68, 68, 0); 
             border: 2px solid #ffdd0000;
         }
         .premium li {
+            width: 200;
             background-color: rgba(68, 68, 68, 0);
             border: 2px solid #ffdd0000; 
         }
         .normal li {
+            align-items: center;
+            align-content: center;
+            left: 10em;
+            width: 20em;
             background-color: rgba(68, 68, 68, 0); 
             border: 2px solid #ffdd0000; 
         }
@@ -429,7 +437,7 @@
             <h1 class="standard-hs">Standard</h1>
             <ul id="normal-list">
                 <li>
-                    <a href="https://vulify.lol/jas" target="_blank" class="glow-text">Jas</a>
+                    <a class="glow-text" id="text">Currently no standard users</a>
                     <div class="id-text">id: 3</div>
                 </li>
             </ul>
