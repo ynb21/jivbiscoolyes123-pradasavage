@@ -22,7 +22,7 @@ body {
 
 body {
     background-color: var(--background);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
     cursor: url('../ico/cursors/risk.cur'), auto;
 }
 
@@ -161,9 +161,9 @@ body {
 }
 
 .badges {
-    position: relative;
-    top: -12.8em;
-    left: -0.95rem;
+    position: absolute;
+    top: 1.65em;
+    left: 14.5em;
     display: flex;
     justify-content: center;
     align-items: center;
