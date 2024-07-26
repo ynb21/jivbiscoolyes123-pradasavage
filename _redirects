@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/risk", "destination": "/biolinks/risk.html" }
+  ]
+}
