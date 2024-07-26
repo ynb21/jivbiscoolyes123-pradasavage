@@ -83,7 +83,7 @@ body {
     padding: 1rem;
     padding-bottom: 2em;
     width: 40rem;
-    max-height: 34rem;
+    max-height: 14rem;
     background: rgb(255, 255, 255);
     border-radius: 30px;
     box-shadow: 0 0px 199px rgb(255, 255, 255);
@@ -137,13 +137,13 @@ body {
     display: flex;
     justify-content: left;
     align-items: left;
-    top: -10.2em;
-    left: 9.2rem;
+    top: -4.8em;
+    left: 14.2rem;
     height: 1.2rem;
     margin-top: 0.8%;
     color: #f7f7f7ef;
     text-shadow: 0px 0px 2.5px #f7f7f7ef;
-    font-size: 13px;
+    font-size: 18px;
 }
 
 .badges-container {
@@ -154,8 +154,8 @@ body {
 
 .badges {
     position: relative;
-    top: -12.7em;
-    left: 1em;
+    top: -11em;
+    left: -6.5em;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -21,7 +21,7 @@ html, body {
 
 body {
     background-color: var(--background);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(5px);
 }
 
 .container {
@@ -63,7 +63,7 @@ body {
     z-index: 100;
     margin: 1.5rem;
     position: absolute;
-    background-color: #d8d8d810;
+    background-color: #d8d8d800;
     padding: 0.6rem;
     border-radius: 1.4vh;
     cursor: pointer;
@@ -79,17 +79,19 @@ body {
     flex-direction: column;
 }
 
+
 .card {
     padding: 1rem;
     padding-bottom: 2em;
+    height: 27rem;
     width: 40rem;
-    max-height: 34rem;
-    background: rgb(255, 255, 255);
+    max-height: 110rem;
+    background: rgba(255, 255, 255, 0);
     border-radius: 30px;
-    box-shadow: 0 0px 199px rgb(255, 255, 255);
+    box-shadow: 0 0px 199px rgba(255, 255, 255, 0);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(6.4px);
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgba(255, 255, 255, 0.253);
     opacity: 0;  /* Start hidden */
     transform: scale(0.5);  /* Start smaller */
     transition: opacity 0.4s ease, transform 0.4s ease;
@@ -155,8 +157,8 @@ body {
 
 .badges {
     position: relative;
-    top: -13.2em;
-    left: -0.5em;
+    top: -12.9em;
+    left: -1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,7 +201,7 @@ body {
 
 .links-container {
     position: relative;
-    top: -8rem;
+    top: -7.5rem;
     left: -.5rem;
     justify-content: center;
     display: flex;
@@ -401,44 +403,56 @@ body {
     border: 0px solid #ffffff00;
     border-radius: 30px;
     transition: transform 0.1s ease-in-out;
+    cursor: url('.././ico/cursors/swat.cur'), auto;
 }
 
 .clickable-image img:hover {
     transform: scale(1.2);
 }
 
-#tv-screen {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    opacity: 0.3;
-    z-index: 1000;
-    pointer-events: none;
-    overflow: hidden;
-    mix-blend-mode: screen;
-}
+    #tv-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7); /* Dark overlay to simulate the screen */
+        z-index: -1; /* Ensures it's behind other content */
+        overflow: hidden;
+        pointer-events: none; /* Allows clicking through the effect */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-#static {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://www.colorhexa.com/808080.png');
-    background-size: cover;
-    opacity: 0.5;
-    z-index: 1001;
-    animation: static-animation 0.2s steps(10) infinite;
-}
+    #tv-screen #static {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('static-noise.png') repeat; /* Static noise image */
+        opacity: 0.5; /* Adjust for intensity of static */
+        animation: staticAnimation 0.1s infinite;
+    }
 
-@keyframes static-animation {
-    0% { opacity: 0.3; }
-    50% { opacity: 0.7; }
-    100% { opacity: 0.3; }
-}
+    #tv-screen #scanlines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 50%, transparent 50%);
+        background-size: 100% 4px; /* Thickness and spacing of scanlines */
+        opacity: 0.3;
+    }
+
+    @keyframes staticAnimation {
+        0% { background-position: 0 0; }
+        100% { background-position: 100% 100%; }
+    }
+
 
 #scanlines {
     position: absolute;
@@ -464,10 +478,11 @@ body {
 
 .card {
     position: relative;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0);
     padding: 20px;
+    top: -20px;
     border-radius: 30px; /* More rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0);
     text-align: center;
 }
 
@@ -489,4 +504,25 @@ body {
     0% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.5); }
     100% { opacity: 0; transform: scale(2); }
+}
+
+.spotify-player {
+    margin-top: -65px;
+    position: relative;
+    padding-bottom: 0%;
+    overflow: hidden;
+    max-width: 100%;
+    background: #ff000000;
+    border-radius: 30px;
+    border: 2px solid white; /* Add this line for the white border */
+}
+
+#audio-control:hover {
+    transform: scale(1.5);
+    transition: transform 0.3s ease;
+}
+
+/* For custom cursor */
+body {
+    cursor: url('.././ico/cursors/swat.cur'), auto;
 }
