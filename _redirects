@@ -1,5 +1,1 @@
-{
-  "rewrites": [
-    { "source": "/risk", "destination": "/biolinks/risk.html" }
-  ]
-}
+/risk /biolinks/risk.html 200
