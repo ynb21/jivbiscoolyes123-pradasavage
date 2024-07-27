@@ -131,7 +131,7 @@ body {
     position: relative;
     display: flex;
     top: -8em;
-    left: -8em;
+    left: -8.6em;
     text-align: left;
     justify-content: center;
     align-items: left;
@@ -139,10 +139,11 @@ body {
 
 .username a {
     font-weight: 600;
+    font-family:'Times New Roman', Times, serif;
     margin-top: 0.5%;
     font-size: 32px;
-    color: #f7f7f7;
-    text-shadow: 0px 0px 16.5px #f7f7f7;
+    color: #bd0000;
+    text-shadow: 0px 0px 16.5px #bd0000;
 }
 
 .status {
@@ -167,8 +168,8 @@ body {
 
 .badges {
     position: absolute;
-    top: 1.65em;
-    left: 14.5em;
+    top: 1.5em;
+    left: 12.8em;
     display: flex;
     justify-content: center;
     align-items: center;
