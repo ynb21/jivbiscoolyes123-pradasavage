@@ -221,7 +221,32 @@ body {
     margin-top: 2%;
 }
 
+@media only screen and (max-width: 600px) {
 
+    .link {
+        width: 60%;
+    }
+
+    .username {
+        left: -0.1em;
+    }
+
+    .links {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 23rem;
+    }
+
+    .links-container {
+        margin-top: 4%;
+    }
+}
 
 .link-content {
     display: flex;
