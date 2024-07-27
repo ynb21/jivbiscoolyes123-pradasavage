@@ -30,45 +30,32 @@
             opacity: 0;
         }
 
-        .diamond {
-            width: 22px;
-            height: 23px;
-            filter: drop-shadow(0 0 5px rgb(133, 0, 0)) drop-shadow(0 0 5px rgb(133, 0, 0));
-        }
-
-        .verified-badge {
-            width: 22px;
-            height: 23px;
+        .diamond,
+        .verified-badge,
+        .logo-badge,
+        .owner-badge,
+        .booster-badge,
+        .connections-badge,
+        .staff-badge {
             filter: drop-shadow(0 0 5px rgb(133, 0, 0)) drop-shadow(0 0 10px rgb(133, 0, 0));
         }
 
-        .logo-badge {
-            width: 31px;
-            height: 34px;
-            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-        }
-
-        .owner-badge {
-            width: 22px;
-            height: 23px;
-            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-        }
-
-        .booster-badge {
-            width: 22px;
-            height: 23px;
-            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-        }
-
+        .diamond,
+        .verified-badge,
+        .owner-badge,
+        .booster-badge,
         .connections-badge {
             width: 22px;
             height: 23px;
-            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
 
+        .logo-badge,
         .staff-badge {
             width: 23px;
             height: 23px;
+        }
+
+        .logo-badge {
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
 
@@ -79,9 +66,6 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-        }
-
-        body {
             margin: 0;
             overflow: hidden;
             background-repeat: no-repeat;
@@ -90,6 +74,7 @@
         }
 
         canvas {
+            display: block;
             position: fixed;
             top: 0;
             left: 0;
@@ -97,7 +82,6 @@
             height: 100%;
             pointer-events: none;
         }
-
 
         .profile-view-count {
             text-align: center;
@@ -122,13 +106,114 @@
         }
 
         .ascii-logo pre {
-            padding: 0%;
+            padding: 0;
             align-items: center;
             align-content: center;
             color: #610000;
             position: absolute;
             left: 25em;
             top: 11em;
+            opacity: 0;
+            filter: blur(1px);
+            transition: opacity 0.4s ease;
+        }
+
+        .ascii-logo.show pre {
+            opacity: 1;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes neon {
+            0% {
+                border: 2px solid #0a0a0a
+            }
+
+            50% {
+                border: 2px solid #610000
+            }
+
+            100% {
+                border: 2px solid #0a0a0a
+            }
+        }
+
+        .status-text {
+            animation: fade 3s infinite;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .video-bg a,
+        #audio-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            z-index: 100;
+            margin: 2rem;
+            position: absolute;
+            background-color: #d8d8d810;
+            padding: 0.6rem;
+            border-radius: 1.4vh;
+            cursor: pointer;
+            right: 0;
+            top: 0;
+            transition: all 0.2s;
+        }
+
+        .video-bg a:hover,
+        #audio-control:hover {
+            transition: all 0.2s;
+            background-color: #d8d8d888;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .card {
+            padding: 1rem;
+            padding-bottom: 2em;
+            width: 40rem;
+            max-height: 34rem;
+            max-height: 71%;
+            background: rgba(0, 0, 0, 0.534);
+            border-radius: 16px;
+            box-shadow: 0 0px 30px rgb(0, 0, 0);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(6.4px);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.4s ease, transform 0.4s ease, all 0.5s ease;
+            animation: neon 2s infinite 0.4s;
+        }
+
+        .card.show {
+            opacity: 1;
+            transform: scale(1);
         }
     </style>
 </head>
@@ -136,8 +221,9 @@
 <body
     style="background-color: #000000; background-repeat: no-repeat; background-position: center; background-size: cover;">
     <div id="overlay">
-        Click2Enter
+        Klick 2 enter
     </div>
+    <canvas id="rain"></canvas>
     <div class="ascii-logo">
         <pre>
 
@@ -164,6 +250,8 @@
 
 
         </pre>
+        
+        <script src="effects/rain.js"></script>
     </div>
     <main>
         <div class="container">
@@ -191,7 +279,7 @@
                     </div>
 
                     <div class="status">
-                        <a id="typewriter" class="typewriter"></a>
+                        <a id="typewriter" class="status-text">lucky numba 6</a>
                     </div>
 
                     <div class="badges-container">
@@ -225,6 +313,38 @@
                                     </a>
                                 </div>
                             </div>
+                            <div class="link" id="connection">
+                                <p>Website</p>
+                                <div class="link-content">
+                                    <h4>Roblox</h4>
+                                    <a href="https://www.roblox.com/users/2222225912/profile" target="_blank">
+                                        <div class="tooltip" data-text="View Link">
+                                            <svg width="20px" height="20px" viewBox="0 0 32 32"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none">
+                                                <path stroke="#d8d8d8" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M22 3h7v7M27.5 4.5L20 12M17 5H8a3 3 0 00-3 3v16a3 3 0 003 3h16a3 3 0 003-3v-9" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="link" id="connection">
+                                <p>Website</p>
+                                <div class="link-content">
+                                    <h4>YouTube</h4>
+                                    <a href="https://youtube.com/@riowydd?si=DAPBA0EWiCjqgURF" target="_blank">
+                                        <div class="tooltip" data-text="View Link">
+                                            <svg width="20px" height="20px" viewBox="0 0 32 32"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none">
+                                                <path stroke="#d8d8d8" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M22 3h7v7M27.5 4.5L20 12M17 5H8a3 3 0 00-3 3v16a3 3 0 003 3h16a3 3 0 003-3v-9" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -232,6 +352,13 @@
     </main>
 
     <script src="effects/cursor.js"></script>
+    <script>
+        document.getElementById('overlay').addEventListener('click', function () {
+            this.classList.add('hidden');
+            document.querySelector('.card').classList.add('show');
+            document.querySelector('.ascii-logo').classList.add('show');
+        });
+    </script>
     <script>
         const audio = document.getElementById("myAudio");
         const audioControl = document.getElementById("audio-control");
@@ -274,42 +401,6 @@
             let currentCount = parseInt(viewCountElem.textContent.split(' ')[0]);
             viewCountElem.textContent = `${currentCount + 1} Views`;
         }
-    </script>
-
-    <script>
-        var txt = 'sigil yo bx';
-        var speed = 95;
-        var eraseSpeed = 80;
-        var loopCount = 0;
-        var maxLoop = 0;
-        var forward = true;
-
-        function typeWriter() {
-            var typewriter = document.getElementById("typewriter");
-            var textLength = txt.length;
-
-            if (forward) {
-                if (typewriter.innerHTML.length < textLength) {
-                    typewriter.innerHTML += txt.charAt(typewriter.innerHTML.length);
-                    setTimeout(typeWriter, speed);
-                } else {
-                    forward = false;
-                    setTimeout(typeWriter, speed * 3);
-                }
-            } else {
-                if (typewriter.innerHTML.length > 0) {
-                    typewriter.innerHTML = typewriter.innerHTML.slice(0, -1);
-                    setTimeout(typeWriter, eraseSpeed);
-                } else {
-                    forward = true;
-                    setTimeout(typeWriter, speed * 3);
-                }
-            }
-        }
-
-        window.onload = function () {
-            typeWriter();
-        };
     </script>
 </body>
 

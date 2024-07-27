@@ -20,7 +20,8 @@
     --accent: #433bff;
 }
 
-html, body {
+html,
+body {
     height: 100vh;
 }
 
@@ -97,14 +98,18 @@ body {
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(6.4px);
     border: 2px solid rgba(255, 255, 255, 0.253);
-    opacity: 0;  /* Start hidden */
-    transform: scale(0.5);  /* Start smaller */
+    opacity: 0;
+    /* Start hidden */
+    transform: scale(0.5);
+    /* Start smaller */
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .card.show {
-    opacity: 1;  /* Make visible */
-    transform: scale(1);  /* Scale to normal size */
+    opacity: 1;
+    /* Make visible */
+    transform: scale(1);
+    /* Scale to normal size */
     border-radius: 25.2px;
 }
 
@@ -230,7 +235,7 @@ body {
     box-shadow: 0 4px 30px rgb(255, 255, 255);
     backdrop-filter: blur(5.8px);
     -webkit-backdrop-filter: blur(5.8px);
-    border: 1px solid  rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
     width: 48%;
     margin: 1%;
     padding: 0.4rem;
@@ -325,6 +330,7 @@ body {
     .link {
         width: 100%;
     }
+
     .links {
         margin-left: 2rem;
         margin-right: 2rem;
@@ -336,6 +342,7 @@ body {
     .card {
         width: 23rem;
     }
+
     .links-container {
         margin-top: 4%;
     }
@@ -366,8 +373,10 @@ body {
 .profile-view-count {
     position: absolute;
     top: 10px;
-    right: 10px; /* Positioned in the top-right corner */
-    background: none; /* Removed background color */
+    right: 10px;
+    /* Positioned in the top-right corner */
+    background: none;
+    /* Removed background color */
     color: #fff;
     padding: 10px;
     border-radius: 5px;
@@ -376,14 +385,18 @@ body {
     align-items: center;
     gap: 10px;
     cursor: default;
-    box-shadow: none; /* Optional: remove any shadow if present */
+    box-shadow: none;
+    /* Optional: remove any shadow if present */
 }
 
 .Viewcount {
     position: absolute;
-    top: 80px; /* Adjust this value to align with the badges */
-    right: 10px; /* Positioned in the top-right corner */
-    background: none; /* Removed background color */
+    top: 80px;
+    /* Adjust this value to align with the badges */
+    right: 10px;
+    /* Positioned in the top-right corner */
+    background: none;
+    /* Removed background color */
     color: #ff0000;
     padding: 10px;
     border-radius: 5px;
@@ -392,11 +405,13 @@ body {
     align-items: center;
     gap: 10px;
     cursor: default;
-    box-shadow: none; /* Optional: remove any shadow if present */
+    box-shadow: none;
+    /* Optional: remove any shadow if present */
 }
 
 .clickable-image {
-    top: 32em; /* Adjust this value as needed */
+    top: 32em;
+    /* Adjust this value as needed */
     display: flex;
     justify-content: center;
 }
@@ -415,48 +430,59 @@ body {
     transform: scale(1.2);
 }
 
-    #tv-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7); /* Dark overlay to simulate the screen */
-        z-index: -1; /* Ensures it's behind other content */
-        overflow: hidden;
-        pointer-events: none; /* Allows clicking through the effect */
-        display: flex;
-        justify-content: center;
-        align-items: center;
+#tv-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    /* Dark overlay to simulate the screen */
+    z-index: -1;
+    /* Ensures it's behind other content */
+    overflow: hidden;
+    pointer-events: none;
+    /* Allows clicking through the effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tv-screen #static {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('static-noise.png') repeat;
+    /* Static noise image */
+    opacity: 0.5;
+    /* Adjust for intensity of static */
+    animation: staticAnimation 0.1s infinite;
+}
+
+#tv-screen #scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 50%, transparent 50%);
+    background-size: 100% 4px;
+    /* Thickness and spacing of scanlines */
+    opacity: 0.3;
+}
+
+@keyframes staticAnimation {
+    0% {
+        background-position: 0 0;
     }
 
-    #tv-screen #static {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('static-noise.png') repeat; /* Static noise image */
-        opacity: 0.5; /* Adjust for intensity of static */
-        animation: staticAnimation 0.1s infinite;
+    100% {
+        background-position: 100% 100%;
     }
-
-    #tv-screen #scanlines {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 50%, transparent 50%);
-        background-size: 100% 4px; /* Thickness and spacing of scanlines */
-        opacity: 0.3;
-    }
-
-    @keyframes staticAnimation {
-        0% { background-position: 0 0; }
-        100% { background-position: 100% 100%; }
-    }
+}
 
 
 #scanlines {
@@ -465,20 +491,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: repeating-linear-gradient(
-        0deg,
-        rgb(0, 0, 0),
-        rgba(255, 255, 255, 0.63) 1px,
-        rgba(255, 255, 255, 0.336) 1px,
-        rgb(0, 0, 0) 2px
-    );
+    background: repeating-linear-gradient(0deg,
+            rgb(0, 0, 0),
+            rgba(255, 255, 255, 0.63) 1px,
+            rgba(255, 255, 255, 0.336) 1px,
+            rgb(0, 0, 0) 2px);
     z-index: 1002;
     animation: scanlines-animation 0.1s steps(30) infinite;
 }
 
 @keyframes scanlines-animation {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100%); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
 }
 
 .card {
@@ -486,7 +515,8 @@ body {
     background-color: rgba(0, 0, 0, 0);
     padding: 20px;
     top: -20px;
-    border-radius: 30px; /* More rounded corners */
+    border-radius: 30px;
+    /* More rounded corners */
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0);
     text-align: center;
 }
@@ -506,9 +536,20 @@ body {
 }
 
 @keyframes sparkleAnimation {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.5); }
-    100% { opacity: 0; transform: scale(2); }
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
 }
 
 .spotify-player {
@@ -519,7 +560,8 @@ body {
     max-width: 100%;
     background: #ff000000;
     border-radius: 30px;
-    border: 2px solid white; /* Add this line for the white border */
+    border: 2px solid white;
+    /* Add this line for the white border */
 }
 
 #audio-control:hover {
