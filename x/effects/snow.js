@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         snowflakes.forEach(flake => {
             flake.speed = verticalSpeed; // Set the speed for all snowflakes
-            flake.direction = directionOffset; // Set the direction based on mouse position
+            flake.direction = directionOffset;
         });
     });
 });
