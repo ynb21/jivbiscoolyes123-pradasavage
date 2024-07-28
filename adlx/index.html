@@ -1,13 +1,12 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="downfall.wiki #1 private biolink | discord.gg/pMXZ6ZzHqk" />
-    <link href="../biolinks/css/mxden.css" rel="stylesheet">
+    <meta name="description" content="vulify.lol #1 private biolink" />
+    <link href="../biolinks/css/adlx.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../biolinks/ico/logo.png">
-    <title>mxden</title>
+    <title>adlx</title>
     <style>
         #overlay {
             position: fixed;
@@ -24,69 +23,55 @@
             z-index: 9999;
             cursor: pointer;
             opacity: 1;
-            transition: opacity 0.4s ease;
+            transition: all 0.4s ease;
         }
 
         #overlay.hidden {
             opacity: 0;
         }
 
-        .dia-badge {
-            width: 22px;
-            height: 23px;
-            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 5px white);
-        }
-
-        .verified-badge {
-            width: 22px;
-            height: 23px;
-            filter: drop-shadow(0 0 5px rgb(255, 255, 255)) drop-shadow(0 0 10px white);
-        }
-
-        .bmw-badge {
-            width: 31px;
-            height: 20px;
-            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-        }
-
+        .diamond,
+        .verified-badge,
+        .logo-badge,
+        .owner-badge,
+        .booster-badge,
+        .connections-badge,
         .staff-badge {
-            width: 21px;
-            height: 19px;
+            filter: drop-shadow(0 0 5px rgb(255, 255, 255)) drop-shadow(0 0 10px rgb(255, 255, 255));
+        }
+
+        .diamond,
+        .verified-badge,
+        .owner-badge,
+        .booster-badge,
+        .connections-badge {
+            width: 22px;
+            height: 23px;
+        }
+
+        .logo-badge,
+        .staff-badge {
+            width: 23px;
+            height: 23px;
+        }
+
+        .logo-badge {
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
 
+        
         .discord-s {
-            width: 38px;
+            width: 34px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-            margin-left: -4px;
         }
 
-
-        .steam-s {
-            width: 38px;
+        .tiktok-s {
+            width: 37px;
             height: 23px;
+            margin-left: -2px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-            margin-left: -4px;
         }
-
-
-        .roblox-s {
-            width: 38px;
-            height: 23px;
-            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-            margin-left: -5px;
-        }
-
-
-        .spotify-s {
-            width: 38px;
-            height: 24px;
-            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-            margin-left: -5px;
-        }
-
-
 
         body {
             font-family: Arial, sans-serif;
@@ -103,6 +88,7 @@
         }
 
         canvas {
+            display: block;
             position: fixed;
             top: 0;
             left: 0;
@@ -112,47 +98,20 @@
         }
 
         .profile-view-count {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
+            text-align: center;
             color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 18px;
-            display: flex;
             align-items: center;
-            gap: 10px;
-            cursor: default;
-            box-shadow: none;
         }
 
         .eye-icon {
-            margin-right: -4px;
+            margin-right: 10px;
             width: 20px;
             height: 20px;
             vertical-align: middle;
         }
 
-        .card {
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        .youtube-player iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
         .clickable-image img {
-            margin-top: -4.6em;
+            margin-top: -7em;
             display: flex;
             justify-content: center;
         }
@@ -165,13 +124,7 @@
             border-radius: 30px;
         }
 
-        .glowing-text {
-            font-size: 2em;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
-            animation: glowAnimation 1.5s infinite alternate;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
+        .sparkles {
             background-image: url('../biolinks/glitter/white.gif');
             position: relative;
             display: inline-block;
@@ -179,14 +132,110 @@
             padding-right: 6px;
             border-radius: 5px;
         }
+
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes neon {
+            0% {
+                border: 2px solid #0a0a0a
+            }
+
+            50% {
+                border: 2px solid #ffffff
+            }
+
+            100% {
+                border: 2px solid #0a0a0a
+            }
+        }
+
+        .status-text {
+            animation: fade 3s infinite;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .video-bg a,
+        #audio-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            z-index: 100;
+            margin: 2rem;
+            position: absolute;
+            background-color: #d8d8d810;
+            padding: 0.6rem;
+            border-radius: 1.4vh;
+            cursor: pointer;
+            right: 0;
+            top: 0;
+            transition: all 0.2s;
+        }
+
+        .video-bg a:hover,
+        #audio-control:hover {
+            transition: all 0.2s;
+            background-color: #d8d8d888;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .card {
+            padding: 1rem;
+            padding-bottom: 2em;
+            width: 40rem;
+            max-height: 34rem;
+            max-height: 71%;
+            background: rgba(0, 0, 0, 0.534);
+            border-radius: 16px;
+            box-shadow: 0 0px 30px rgb(0, 0, 0);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(6.4px);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.4s ease, transform 0.4s ease, all 0.5s ease;
+            animation: neon 2s infinite 0.4s;
+        }
+
+        .card.show {
+            opacity: 1;
+            transform: scale(1);
+        }
     </style>
 </head>
 
-
 <body
-    style="background-image: url('https://files.catbox.moe/reslw6.png'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+    style="background-image: url('https://files.catbox.moe/6xeq0j.png'); background-repeat: no-repeat; background-position: center; background-size: cover;">
     <div id="overlay">
-        〔Click 2 Enter〕
+        555 Forever...
+    </div>
+    <canvas id="rain"></canvas>
+        <script src="effects/rain.js"></script>
     </div>
     <main>
         <div class="container">
@@ -200,74 +249,63 @@
                     </svg>
                 </a>
                 <audio id="myAudio" loop muted>
-                    <source src="audio/mxden.mp3" type="audio/mpeg">
+                    <source src="audio/adlx.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="profile-container">
                 <div class="card">
-                    <!-- Profile view count section -->
-                    <div class="profile-view-count">
-                        <img src="../biolinks/ico/eye.png" class="eye-icon" alt="Eye Icon">
-                        <span id="view-count">0 Views</span>
-                    </div>
                     <div class="pfp">
-                        <img src="pfp/mxden.jpg" alt="Profile Picture">
+                        <img src="pfp/adlx.jpg">
                     </div>
                     <div class="username">
-                        <a class="glowing-text">mxden</a>
+                        <a class="sparkles">adlx</a>
                     </div>
-
 
                     <div class="status">
-                        <a id="typewriter" class="typewriter"></a>
+                        <a id="typewriter" class="status-text">love my gf</a>
                     </div>
-                    <!-- Clickable Image Section -->
+
                     <div class="clickable-image">
-                        <a href="https://discord.com/users/891047319330500630" target="_blank">
+                        <a href="https://discord.gg/mcHEBEFeGg" target="_blank">
                             <img class="discord-s" src="../biolinks/ico/discord.png" alt="Clickable Image">
                         </a>
-                        <a href="https://steamcommunity.com/id/PassionfruitOT" target="_blank">
-                            <img class="steam-s" src="../biolinks/ico/steam.png" alt="Clickable Image">
-                        </a>
-                        <a href="https://www.roblox.com/users/4943021360/profile" target="_blank">
-                            <img class="roblox-s" src="../biolinks/ico/roblox.png" alt="Clickable Image">
-                        </a>
-                        <a href="https://open.spotify.com/user/3162q34okbllv6izgfpipvsckaoe" target="_blank">
-                            <img class="spotify-s" src="../biolinks/ico/spotify.png" alt="Clickable Image">
+                        <a href="https://tiktok.com/@cortzddot" target="_blank">
+                            <img class="tiktok-s" src="../biolinks/ico/tiktok.png" alt="Clickable Image">
                         </a>
                     </div>
+
                     <div class="badges-container">
                         <div class="badges">
-                            <div class="tooltip" data-text="Staff">
-                                <img class="staff-badge" src="../biolinks/ico/staff.png" alt="vulify Badge">
+
+                            <div class="tooltip" data-text="Verfied">
+                                <img class="verified-badge" src="../biolinks/ico/verified.png">
                             </div>
-                            <div class="tooltip" data-text="Verified">
-                                <img class="verified-badge" src="../biolinks/ico/verified.png" alt="vulify Badge">
-                            </div>
+
                             <div class="tooltip" data-text="Premium">
-                                <img class="dia-badge" src="../biolinks/ico/dia.png" alt="Owner Badge">
+                                <img class="diamond" src="../biolinks/ico/dia.png">
                             </div>
-                            <div class="tooltip" data-text="BMW Fan">
-                                <img class="bmw-badge" src="../biolinks/ico/bmw.png" alt="BMW Badge">
+
+                        </div>
+                    </div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </a>
             </div>
-        </div>
-
-        <!-- YouTube Player Section -->
-
-
-        </div>
-        </div>
-        </div>
-        </div>
     </main>
-    
+
     <script src="effects/cursor.js"></script>
+    <script>
+        document.getElementById('overlay').addEventListener('click', function () {
+            this.classList.add('hidden');
+            document.querySelector('.card').classList.add('show');
+            document.querySelector('.ascii-logo').classList.add('show');
+        });
+    </script>
     <script>
         const audio = document.getElementById("myAudio");
         const audioControl = document.getElementById("audio-control");
@@ -304,52 +342,13 @@
             }
         }
 
-        setVolume(0.06);
+        setVolume(0.5);
 
         function incrementViewCount() {
             let currentCount = parseInt(viewCountElem.textContent.split(' ')[0]);
             viewCountElem.textContent = `${currentCount + 1} Views`;
         }
     </script>
-
-    <script>
-        var txt = 'Pblock On Top';
-        var speed = 95;
-        var eraseSpeed = 100;
-        var forward = true;
-
-        function typeWriter() {
-            var typewriter = document.getElementById("typewriter");
-            var textLength = txt.length;
-
-            if (forward) {
-                if (typewriter.innerHTML.length < textLength) {
-                    typewriter.innerHTML += txt.charAt(typewriter.innerHTML.length);
-                    setTimeout(typeWriter, speed);
-                } else {
-                    forward = false;
-                    setTimeout(typeWriter, speed * 3);
-                }
-            } else {
-                if (typewriter.innerHTML.length > 0) {
-                    typewriter.innerHTML = typewriter.innerHTML.slice(0, -1);
-                    setTimeout(typeWriter, eraseSpeed);
-                } else {
-                    forward = true;
-                    setTimeout(typeWriter, speed * 3);
-                }
-            }
-        }
-
-        window.onload = function () {
-            typeWriter();
-        };
-    </script>
 </body>
-<div id="tv-screen">
-    <div id="static"></div>
-    <div id="scanlines"></div>
-</div>
-
 
 </html>

@@ -19,4 +19,3 @@ setInterval(function() {
         sparkle.remove();
     }, 500);
 }, 65);
-    
