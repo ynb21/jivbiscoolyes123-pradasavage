@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="vulify.lol #1 private biolink" />
     <link href="../biolinks/css/swat.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="..biolinks/ico/logo.png">
-    <title>swat</title>
+    <link rel="icon" type="image/x-icon" href="../biolinks/ico/logo.png">
+    <title>DNS</title>
     <style>
         #overlay {
             position: fixed;
@@ -26,87 +26,87 @@
             opacity: 1;
             transition: opacity 0.4s ease;
         }
-    
+
         #overlay.hidden {
             opacity: 0;
         }
-    
+
         .diamond {
             width: 22px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 5px white);
         }
-    
+
         .verified-badge {
             width: 22px;
             height: 23px;
             filter: drop-shadow(0 0 5px rgb(255, 255, 255)) drop-shadow(0 0 10px white);
         }
-    
+
         .owner-badge {
             width: 22px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-    
+
         .bmw-badge {
             width: 31px;
             height: 20px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-    
+
         .logo-badge {
             width: 31px;
             height: 34px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-    
+
         .staff-badge {
             width: 23px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-    
+
         .discord-s {
             width: 34px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-    
+
         .instagram-s {
             width: 34px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-    
+
         .tiktok-s {
             width: 40px;
             height: 30324px;
             margin-left: -6px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-    
+
         .globe-s {
             width: 27px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
             margin-left: -4px;
         }
-    
+
         .steam-s {
             width: 38px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
             margin-left: -4px;
         }
-    
+
         .cashapp-s {
             width: 43px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
             margin-left: -7.5px;
         }
-    
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -120,7 +120,7 @@
             background-position: center;
             background-size: cover;
         }
-    
+
         canvas {
             position: fixed;
             top: 0;
@@ -132,13 +132,16 @@
 
         .spotify-player-wrapper {
             position: relative;
-            overflow: hidden; /* Or other styles for the wrapper */
+            overflow: hidden;
+            /* Or other styles for the wrapper */
         }
-        
+
         .spotify-player {
             position: absolute;
-            top: 310px; /* Adjust based on your layout */
-            left: 0px; /* Move the player 100px to the left */
+            top: 310px;
+            /* Adjust based on your layout */
+            left: 0px;
+            /* Move the player 100px to the left */
             margin: 0;
             padding-right: 334px;
             background: rgba(0, 0, 0, 0.486);
@@ -146,7 +149,7 @@
             border: 2px solid rgba(255, 255, 255, 0.253);
             box-shadow: 0 4px 8px rgba(255, 255, 255, 0.281);
         }
-    
+
         .spotify-player iframe {
             width: 200%;
             margin-top: 50px;
@@ -154,7 +157,7 @@
             margin-top: 25px;
             margin-left: 18px;
         }
-    
+
         .profile-view-count {
             position: absolute;
             top: 10px;
@@ -170,29 +173,29 @@
             cursor: default;
             box-shadow: none;
         }
-    
+
         .eye-icon {
             margin-right: -4px;
             width: 20px;
             height: 20px;
             vertical-align: middle;
         }
-    
+
         .card {
             position: relative;
             background-color: rgba(255, 255, 255, 0);
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.281);
-            text-align: center;
+            transform: scale(0.5);
+            transition: opacity 0.4s ease, transform 0.4s ease, all 0.5s ease;
+            animation: neon 2s infinite 0.4s;
         }
-    
+
         .clickable-image img {
             margin-top: -5.6em;
             display: flex;
             justify-content: center;
         }
-    
+
         .clickable-image img {
             max-width: 100%;
             height: 23px;
@@ -205,7 +208,8 @@
             position: absolute;
             left: -1.5em;
             right: 0;
-            bottom: 117px; /* Adjust this value to position the text as needed */
+            bottom: 117px;
+            /* Adjust this value to position the text as needed */
             text-align: center;
             color: #fff;
             font-size: 20px;
@@ -216,7 +220,8 @@
             position: absolute;
             left: -0.5em;
             right: 0;
-            bottom: -65px; /* Adjust this value to position the text as needed */
+            bottom: -65px;
+            /* Adjust this value to position the text as needed */
             text-align: center;
             color: #fff;
             font-size: 21px;
@@ -227,7 +232,8 @@
             position: absolute;
             left: -2.5em;
             right: 0;
-            bottom: 85px; /* Adjust this value as needed */
+            bottom: 85px;
+            /* Adjust this value as needed */
             text-align: center;
             color: #ffffffc9;
             font-size: 16px;
@@ -237,16 +243,46 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes neon {
+            0% {
+                border: 2px solid #0a0a0a
+            }
+
+            50% {
+                border: 2px solid #ffffff
+            }
+
+            100% {
+                border: 2px solid #0a0a0a
+            }
+        }
+
         .clickable-link:hover {
-            color: #ffffff94; /* Change color on hover */
-        }     
-        
+            color: #ffffff94;
+            /* Change color on hover */
+        }
+
         .clickable-link2 {
             position: absolute;
             left: -3em;
             right: 0;
-            bottom: 20px; /* Adjust this value as needed */
+            bottom: 20px;
+            /* Adjust this value as needed */
             text-align: center;
             color: #ffffffc9;
             font-size: 16px;
@@ -256,16 +292,17 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
+
         .clickable-link2:hover {
-            color: #ffffff94; /* Change color on hover */
-        }  
+            color: #ffffff94;
+            /* Change color on hover */
+        }
 
         .underline-animation {
             position: relative;
             display: inline-block;
         }
-        
+
         .underline-animation:after {
             content: '';
             position: absolute;
@@ -278,18 +315,19 @@
             transform-origin: center;
             animation: underlineAnimation 2s infinite alternate;
         }
-        
+
         @keyframes underlineAnimation {
             0% {
                 transform: scaleX(0);
             }
+
             100% {
                 transform: scaleX(1);
             }
         }
-        
-        
-    
+
+
+
         .glowing-text {
             font-size: 2em;
             font-weight: bold;
@@ -304,24 +342,24 @@
             padding-right: 6px;
             border-radius: 5px;
         }
-    
+
         @keyframes glowAnimation {
             from {
                 text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff00, 0 0 15px #ffffff00;
             }
-    
+
             to {
                 text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff, 0 0 45px #ffffff;
             }
         }
-    </style>    
+    </style>
 
 </head>
 
 <body
-    style="background-image: url('https://files.catbox.moe/71lpj0.png'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+    style="background-image: url('https://files.catbox.moe/tzp05a.png'); background-repeat: no-repeat; background-position: center; background-size: cover;">
     <div id="overlay">
-        〔Click 2 To View The #1 Bio〕
+        〔vulify.lol to buy〕
     </div>
     <main>
         <div class="container">
@@ -335,31 +373,31 @@
                     </svg>
                 </a>
                 <audio id="myAudio" loop muted>
-                    <source src="audio/swat.mp3" type="audio/mpeg">
+                    <source src="audio/dns.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
             </div>
             <div class="profile-container">
-                </div>                
-                <div class="card">
-                    <div class="text-container">
+            </div>
+            <div class="card">
+                <div class="text-container">
                     <!-- Profile view count section -->
                     <div class="profile-view-count">
                         <img src="../biolinks/ico/eye.png" class="eye-icon" alt="Eye Icon">
                         <span id="view-count">0 Views</span>
                     </div>
                     <div class="pfp">
-                        <img src="pfp/swat.gif" alt="Profile Picture">
+                        <img src="pfp/swat.jpg" alt="Profile Picture">
                     </div>
                     <div class="username">
-                        <a class="glowing-text">swat</a>
+                        <a class="glowing-text">DNS</a>
                     </div>
 
 
                     <div class="status">
                         <a id="typewriter" class="typewriter"></a>
                     </div>
-                    
+
                     <div class="clickable-image">
                         <a href="https://discord.com/users/408989428791640074" target="_blank">
                             <img class="discord-s" src="../biolinks/ico/discord.png" alt="Clickable Image">
@@ -429,22 +467,22 @@
                                     </a>
                                 </div>
                             </div>
-                        <div>
-                    </div>
-                    </div>
+                            <div>
+                            </div>
+                        </div>
                     </div>
                     <div class="additional-text">
                         <p><span class="underline-animation">Check out others biolinks</span></p>
                         <div class="additional-text2">
-                        <p><span class="underline-animation">Purchase at</span></p>
+                            <p><span class="underline-animation">Purchase at</span></p>
+                        </div>
+                    </div>
+                    <a href="https://vulify.lol/users" class="clickable-link" target="_blank">Vulify.lol/users</a>
+                    <a href="https://vulify.lol/" class="clickable-link2" target="_blank">Vulify.lol</a>
                 </div>
-            </div>
-            <a href="../users.html" class="clickable-link" target="_blank">Vulify.lol/users</a>
-            <a href="../index.html" class="clickable-link2" target="_blank">Vulify.lol</a>
-        </div>
     </main>
- 
-    
+
+
 
     <script src="effects/cursor.js"></script>
     <script>
@@ -459,17 +497,17 @@
         function getViewCount() {
             return parseInt(localStorage.getItem('viewCount') || '0');
         }
-    
+
         function setViewCount(count) {
             localStorage.setItem('viewCount', count.toString());
             viewCountElem.textContent = `${count} Views`;
         }
-    
+
         function incrementViewCount() {
             const currentCount = getViewCount();
             setViewCount(currentCount + 1);
         }
-    
+
         // Initialize view count
         setViewCount(getViewCount());
 
@@ -509,7 +547,7 @@
     </script>
 
     <script>
-        var txt = 'founder / owner @ vulify.sh';
+        var txt = 'founder / owner @ vulify.lol';
         var speed = 95;
         var eraseSpeed = 100;
         var forward = true;
@@ -543,6 +581,7 @@
         };
     </script>
 </body>
+
 <body>
     <!-- Your existing HTML content -->
     <div id="tv-screen">
