@@ -6,10 +6,10 @@ document.addEventListener('mousemove', function(e) {
 setInterval(function() {
     const sparkle = document.createElement('div');
     sparkle.className = 'sparkle';
-    sparkle.textContent = '˖';
+    sparkle.textContent = '$';
     sparkle.style.left = `${mouseX}px`;
     sparkle.style.top = `${mouseY}px`;
-    sparkle.style.fontSize = `${Math.random() * 12 + 12}px`;
+    sparkle.style.fontSize = `12px`;
     sparkle.style.opacity = 1;
     document.body.appendChild(sparkle);
     sparkle.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
