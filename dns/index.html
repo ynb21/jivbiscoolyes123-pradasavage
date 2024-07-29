@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="vulify.lol #1 private biolink" />
     <link href="../biolinks/css/swat.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="../biolinks/ico/logo.png">
+    <link rel="icon" type="image/x-icon" href="..biolinks/ico/logo.png">
     <title>DNS</title>
     <style>
         #overlay {
@@ -26,87 +26,87 @@
             opacity: 1;
             transition: opacity 0.4s ease;
         }
-
+    
         #overlay.hidden {
             opacity: 0;
         }
-
+    
         .diamond {
             width: 22px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 5px white);
         }
-
+    
         .verified-badge {
             width: 22px;
             height: 23px;
             filter: drop-shadow(0 0 5px rgb(255, 255, 255)) drop-shadow(0 0 10px white);
         }
-
+    
         .owner-badge {
             width: 22px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-
+    
         .bmw-badge {
             width: 31px;
             height: 20px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-
+    
         .logo-badge {
             width: 31px;
             height: 34px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-
+    
         .staff-badge {
             width: 23px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-
+    
         .discord-s {
             width: 34px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-
+    
         .instagram-s {
             width: 34px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-
+    
         .tiktok-s {
             width: 40px;
             height: 30324px;
             margin-left: -6px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
-
+    
         .globe-s {
             width: 27px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
             margin-left: -4px;
         }
-
+    
         .steam-s {
             width: 38px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
             margin-left: -4px;
         }
-
+    
         .cashapp-s {
             width: 43px;
             height: 23px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
             margin-left: -7.5px;
         }
-
+    
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -120,7 +120,7 @@
             background-position: center;
             background-size: cover;
         }
-
+    
         canvas {
             position: fixed;
             top: 0;
@@ -132,16 +132,13 @@
 
         .spotify-player-wrapper {
             position: relative;
-            overflow: hidden;
-            /* Or other styles for the wrapper */
+            overflow: hidden; /* Or other styles for the wrapper */
         }
-
+        
         .spotify-player {
             position: absolute;
-            top: 310px;
-            /* Adjust based on your layout */
-            left: 0px;
-            /* Move the player 100px to the left */
+            top: 310px; /* Adjust based on your layout */
+            left: 0px; /* Move the player 100px to the left */
             margin: 0;
             padding-right: 334px;
             background: rgba(0, 0, 0, 0.486);
@@ -149,7 +146,7 @@
             border: 2px solid rgba(255, 255, 255, 0.253);
             box-shadow: 0 4px 8px rgba(255, 255, 255, 0.281);
         }
-
+    
         .spotify-player iframe {
             width: 200%;
             margin-top: 50px;
@@ -157,7 +154,7 @@
             margin-top: 25px;
             margin-left: 18px;
         }
-
+    
         .profile-view-count {
             position: absolute;
             top: 10px;
@@ -173,14 +170,14 @@
             cursor: default;
             box-shadow: none;
         }
-
+    
         .eye-icon {
             margin-right: -4px;
             width: 20px;
             height: 20px;
             vertical-align: middle;
         }
-
+    
         .card {
             position: relative;
             background-color: rgba(255, 255, 255, 0);
@@ -188,14 +185,27 @@
             transform: scale(0.5);
             transition: opacity 0.4s ease, transform 0.4s ease, all 0.5s ease;
             animation: neon 2s infinite 0.4s;
+            /* Add transition for tilt effect */
+            transition: transform 0.3s ease;
+            transform-style: preserve-3d; /* Ensure 3D transformations are applied */
         }
+        
+        .card:hover {
+            /* Apply tilt effect on hover */
+            transform: rotateX(0deg) rotateY(0deg);
+        }        
+
+        .container {
+            perspective: 1000px; /* Adjust as needed for depth */
+        }
+        
 
         .clickable-image img {
             margin-top: -5.6em;
             display: flex;
             justify-content: center;
         }
-
+    
         .clickable-image img {
             max-width: 100%;
             height: 23px;
@@ -208,8 +218,7 @@
             position: absolute;
             left: -1.5em;
             right: 0;
-            bottom: 117px;
-            /* Adjust this value to position the text as needed */
+            bottom: 117px; /* Adjust this value to position the text as needed */
             text-align: center;
             color: #fff;
             font-size: 20px;
@@ -220,8 +229,7 @@
             position: absolute;
             left: -0.5em;
             right: 0;
-            bottom: -65px;
-            /* Adjust this value to position the text as needed */
+            bottom: -65px; /* Adjust this value to position the text as needed */
             text-align: center;
             color: #fff;
             font-size: 21px;
@@ -232,8 +240,7 @@
             position: absolute;
             left: -2.5em;
             right: 0;
-            bottom: 85px;
-            /* Adjust this value as needed */
+            bottom: 85px; /* Adjust this value as needed */
             text-align: center;
             color: #ffffffc9;
             font-size: 16px;
@@ -271,18 +278,16 @@
                 border: 2px solid #0a0a0a
             }
         }
-
+        
         .clickable-link:hover {
-            color: #ffffff94;
-            /* Change color on hover */
-        }
-
+            color: #ffffff94; /* Change color on hover */
+        }     
+        
         .clickable-link2 {
             position: absolute;
             left: -3em;
             right: 0;
-            bottom: 20px;
-            /* Adjust this value as needed */
+            bottom: 20px; /* Adjust this value as needed */
             text-align: center;
             color: #ffffffc9;
             font-size: 16px;
@@ -292,17 +297,16 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-
+        
         .clickable-link2:hover {
-            color: #ffffff94;
-            /* Change color on hover */
-        }
+            color: #ffffff94; /* Change color on hover */
+        }  
 
         .underline-animation {
             position: relative;
             display: inline-block;
         }
-
+        
         .underline-animation:after {
             content: '';
             position: absolute;
@@ -315,19 +319,18 @@
             transform-origin: center;
             animation: underlineAnimation 2s infinite alternate;
         }
-
+        
         @keyframes underlineAnimation {
             0% {
                 transform: scaleX(0);
             }
-
             100% {
                 transform: scaleX(1);
             }
         }
-
-
-
+        
+        
+    
         .glowing-text {
             font-size: 2em;
             font-weight: bold;
@@ -342,25 +345,25 @@
             padding-right: 6px;
             border-radius: 5px;
         }
-
+    
         @keyframes glowAnimation {
             from {
                 text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff00, 0 0 15px #ffffff00;
             }
-
+    
             to {
                 text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff, 0 0 45px #ffffff;
             }
         }
-    </style>
+    </style>    
 
 </head>
 
 <body
-    style="background-image: url('https://files.catbox.moe/tzp05a.png'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+    style="background-image: url('https://files.catbox.moe/2vyciw.gif'); background-repeat: no-repeat; background-position: center; background-size: cover;">
     <div id="overlay">
         〔vulify.lol to buy〕
-    </div>
+    </div>  
     <main>
         <div class="container">
             <div class="audio-bg">
@@ -368,7 +371,6 @@
                     <svg fill='#d8d8d8' width="18px" height="18px" viewBox="0 0 16 16"
                         xmlns="http://www.w3.org/2000/svg">
                         <path clip-rule="evenodd"
-                            d="m2 7.5v3c0 .8.6 1.5 1.4 1.5h2.3l3.2 2.8c.1.1.3.2.4.2s.2 0 .3-.1c.2-.1.4-.4.4-.7v-.9l-7.2-7.2c-.5.2-.8.8-.8 1.4zm8 2v-5.8c0-.3-.1-.5-.4-.7-.1 0-.2 0-.3 0s-.3 0-.4.2l-2.8 2.5-4.1-4.1-1 1 3.4 3.4 5.6 5.6 3.6 3.6 1-1z"
                             fill-rule="evenodd" />
                     </svg>
                 </a>
@@ -378,9 +380,9 @@
                 </audio>
             </div>
             <div class="profile-container">
-            </div>
-            <div class="card">
-                <div class="text-container">
+                </div>                
+                <div class="card">
+                    <div class="text-container">
                     <!-- Profile view count section -->
                     <div class="profile-view-count">
                         <img src="../biolinks/ico/eye.png" class="eye-icon" alt="Eye Icon">
@@ -397,7 +399,7 @@
                     <div class="status">
                         <a id="typewriter" class="typewriter"></a>
                     </div>
-
+                    
                     <div class="clickable-image">
                         <a href="https://discord.com/users/408989428791640074" target="_blank">
                             <img class="discord-s" src="../biolinks/ico/discord.png" alt="Clickable Image">
@@ -467,22 +469,22 @@
                                     </a>
                                 </div>
                             </div>
-                            <div>
-                            </div>
-                        </div>
+                        <div>
+                    </div>
+                    </div>
                     </div>
                     <div class="additional-text">
                         <p><span class="underline-animation">Check out others biolinks</span></p>
                         <div class="additional-text2">
-                            <p><span class="underline-animation">Purchase at</span></p>
-                        </div>
-                    </div>
-                    <a href="https://vulify.lol/users" class="clickable-link" target="_blank">Vulify.lol/users</a>
-                    <a href="https://vulify.lol/" class="clickable-link2" target="_blank">Vulify.lol</a>
+                        <p><span class="underline-animation">Purchase at</span></p>
                 </div>
+            </div>
+            <a href="../users.html" class="clickable-link" target="_blank">Vulify.lol/users</a>
+            <a href="../index.html" class="clickable-link2" target="_blank">Vulify.lol</a>
+        </div>
     </main>
-
-
+ 
+    
 
     <script src="effects/cursor.js"></script>
     <script>
@@ -497,17 +499,17 @@
         function getViewCount() {
             return parseInt(localStorage.getItem('viewCount') || '0');
         }
-
+    
         function setViewCount(count) {
             localStorage.setItem('viewCount', count.toString());
             viewCountElem.textContent = `${count} Views`;
         }
-
+    
         function incrementViewCount() {
             const currentCount = getViewCount();
             setViewCount(currentCount + 1);
         }
-
+    
         // Initialize view count
         setViewCount(getViewCount());
 
@@ -538,7 +540,7 @@
             }
         }
 
-        setVolume(0.1);
+        setVolume(0.3);
 
         function incrementViewCount() {
             let currentCount = parseInt(viewCountElem.textContent.split(' ')[0]);
@@ -581,8 +583,31 @@
         };
     </script>
 </body>
-
 <body>
+    <script>
+        document.addEventListener('mousemove', (event) => {
+            const card = document.querySelector('.card');
+            const { clientX: mouseX, clientY: mouseY } = event;
+            const { innerWidth: windowWidth, innerHeight: windowHeight } = window;
+            const cardRect = card.getBoundingClientRect();
+            
+            // Check if mouse is within card boundaries
+            const mouseOverCard = mouseX >= cardRect.left && mouseX <= cardRect.right && mouseY >= cardRect.top && mouseY <= cardRect.bottom;
+        
+            if (mouseOverCard) {
+                // Calculate tilt values
+                const tiltX = (0.5 - (mouseY - cardRect.top) / cardRect.height) * 40; // Adjust 20 for tilt strength
+                const tiltY = ((mouseX - cardRect.left) / cardRect.width - 0.5) * -40; // Adjust -20 for tilt strength
+        
+                // Apply tilt to the card
+                card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+            } else {
+                // Reset tilt when not hovered
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+            }
+        });        
+    </script>
+    
     <!-- Your existing HTML content -->
     <div id="tv-screen">
         <div id="static"></div>
