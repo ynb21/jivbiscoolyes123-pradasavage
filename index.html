@@ -11,16 +11,15 @@
 </head>
 
 <body>
-<header class="header-bg">
-    <a href="#" class="header-text-button">Vulify.lol</a>
-    <a href="https://discord.gg/tW5KSvfwKf" target="_blank" class="invite">Join the support server</a>
-    <img src="biolinks/ico/logo.png" alt="Logo" class="icn">
-    <div class="header-buttons">
-        <a href="https://vulifylol.mysellix.io" target="_blank">Store</a>
-        <a href="#" onclick="scrollToPricing(); return false;">Features</a>
-        <a href="https://vulify.lol/users">Preview</a>
-    </div>
-</header>
+    <header class="header-bg">
+        <a href="#" class="header-text-button">Vulify.lol</a>
+        <img src="biolinks/ico/logo.png" alt="Logo" class="icn">
+        <div class="header-buttons">
+            <a href="https://vulifylol.mysellix.io" target="_blank">Store</a>
+            <a href="https://discord.gg/w9UE9MQS" target="_blank">Server</a>
+            <a href="https://vulify.lol/users">Preview</a>
+        </div>
+    </header>    
 <div class="container">
     <h1 class="title"><span id="typing-effect" class="typing-effect"></span></h1>
     <p class="title-text">
@@ -30,7 +29,7 @@
     <div class="embed-box">
         <div class="fixed-url" style="flex: 1; display: flex; align-items: center;">
             <span class="dark-grey" style="color: #949494; margin-right: 10px;">vulify.lol/</span>
-            <input type="text" style="position: relative; align-items: left; transform:translateY(-807%); left: -1.2em; top: 20.06em; background: none;" placeholder="username">
+            <input type="text" style="position: relative; align-items: left; transform:translateY(-807%); left: -1.1em; top: 20.16em; background: none;" placeholder="username">
         </div>
         <button class="claim-link-button" onclick="window.location.href='https:/\/discord.gg/tW5KSvfwKf';" target="_blank">Claim</button>
     </div>
@@ -112,28 +111,49 @@
 </footer>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const text = "The Next Generation Of Biolinks";
+        const text = ["The Next Generation", "of Biolinks"];
         const typingElement = document.getElementById('typing-effect');
-        let index = 0;
+        let lineIndex = 0;
+        let charIndex = 0;
         let isTyping = true;
 
         function type() {
             if (isTyping) {
-                if (index < text.length) {
-                    typingElement.textContent += text.charAt(index);
-                    index++;
+                if (charIndex < text[lineIndex].length) {
+                    if (charIndex === 0) {
+                        typingElement.innerHTML += `<span class="line${lineIndex + 1}">`;
+                    }
+                    typingElement.lastElementChild.textContent += text[lineIndex][charIndex];
+                    charIndex++;
+                    setTimeout(type, 50);
+                } else if (lineIndex < text.length - 1) {
+                    typingElement.innerHTML += '</span><br>';
+                    lineIndex++;
+                    charIndex = 0;
                     setTimeout(type, 50);
                 } else {
                     isTyping = false;
                     setTimeout(type, 1000);
                 }
             } else {
-                if (index > 0) {
-                    typingElement.textContent = text.substring(0,  index - 1);
-                    index--;
+                if (typingElement.textContent.length > 0) {
+                    let lastSpan = typingElement.lastElementChild;
+                    lastSpan.textContent = lastSpan.textContent.slice(0, -1);
+                    if (lastSpan.textContent.length === 0) {
+                        lastSpan.remove();
+                        if (typingElement.lastElementChild && typingElement.lastElementChild.tagName === 'BR') {
+                            typingElement.lastElementChild.remove();
+                        }
+                        lineIndex = Math.max(0, lineIndex - 1);
+                        charIndex = text[lineIndex].length;
+                    } else {
+                        charIndex--;
+                    }
                     setTimeout(type, 25);
                 } else {
                     isTyping = true;
+                    lineIndex = 0;
+                    charIndex = 0;
                     setTimeout(type, 500);
                 }
             }

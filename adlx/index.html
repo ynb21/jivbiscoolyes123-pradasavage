@@ -49,10 +49,17 @@
             height: 23px;
         }
 
-        .logo-badge,
-        .staff-badge {
-            width: 23px;
-            height: 23px;
+        .love {
+            width: 19px;
+            height: 18px;
+            filter: drop-shadow(0 0 5px rgb(235, 154, 255)) drop-shadow(0 0 10px rgb(243, 184, 255));
+        }
+
+        .booster {
+            width: 30px;
+            height: 18px;
+            margin-left: -4;
+            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
 
         .logo-badge {
@@ -125,13 +132,21 @@
         }
 
         .sparkles {
-            background-image: url('../biolinks/glitter/white.gif');
-            position: relative;
+            background-image: url('../biolinks/glitter/white.gif')
+            ;position: relative;
             display: inline-block;
             padding-left: 6px;
             padding-right: 6px;
-            border-radius: 5px;
+            margin-bottom: 0; /* Default value */
+            border-radius: 53px;
         }
+        
+        @media (max-width: 768px) {
+            .sparkles {
+                margin-bottom: 60px; /* Use margin to adjust space below */
+            }
+        }
+           
 
         @keyframes fade {
             0% {
@@ -222,6 +237,12 @@
             animation: neon 2s infinite 0.4s;
         }
 
+        @media (max-width: 768px) {
+            .card {
+               width: 25rem;
+            }
+        }
+
         .card.show {
             opacity: 1;
             transform: scale(1);
@@ -266,15 +287,6 @@
                         <a id="typewriter" class="status-text">love my gf</a>
                     </div>
 
-                    <div class="clickable-image">
-                        <a href="https://discord.gg/mcHEBEFeGg" target="_blank">
-                            <img class="discord-s" src="../biolinks/ico/discord.png" alt="Clickable Image">
-                        </a>
-                        <a href="https://tiktok.com/@cortzddot" target="_blank">
-                            <img class="tiktok-s" src="../biolinks/ico/tiktok.png" alt="Clickable Image">
-                        </a>
-                    </div>
-
                     <div class="badges-container">
                         <div class="badges">
 
@@ -287,19 +299,51 @@
                             </div>
 
                             <div class="tooltip" data-text="Booster">
-                                <img class="diamond" src="../biolinks/ico/booster.png">
+                                <img class="booster" src="../biolinks/ico/booster.png">
+                            </div>
+
+                            <div class="tooltip" data-text="Love">
+                                <img class="love" src="../biolinks/ico/love.png">
                             </div>
 
                         </div>
                     </div>
+                    <div class="links-container">
+                        <div class="links" style="display: flex;">
+                            <div class="link" id="connection">
+                                <p>Tiktok</p>
+                                <div class="link-content">
+                                    <a href="https://tiktok.com/@cortzddot" target="_blank">
+                                        <div class="tooltip" data-text="View Link">
+                                            <svg width="20px" height="20px" viewBox="0 0 32 32"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none">
+                                                <path stroke="#d8d8d8" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M22 3h7v7M27.5 4.5L20 12M17 5H8a3 3 0 00-3 3v16a3 3 0 003 3h16a3 3 0 003-3v-9" />
+                                            </svg>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                            <div class="link" id="connection">
+                                <p>Discord Server</p>
+                                <div class="link-content">
+                                    <a href="https://discord.gg/mcHEBEFeGg" target="_blank">
+                                        <div class="tooltip" data-text="View Link">
+                                            <svg width="20px" height="20px" viewBox="0 0 32 32"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none">
+                                                <path stroke="#d8d8d8" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M22 3h7v7M27.5 4.5L20 12M17 5H8a3 3 0 00-3 3v16a3 3 0 003 3h16a3 3 0 003-3v-9" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        <div>
                     </div>
-                </div>
-            </div>
+                    </div>
+                    </div>
     </main>
 
     <script src="effects/cursor.js"></script>
@@ -352,6 +396,29 @@
             let currentCount = parseInt(viewCountElem.textContent.split(' ')[0]);
             viewCountElem.textContent = `${currentCount + 1} Views`;
         }
+    </script>
+    <script>
+        document.addEventListener('mousemove', (event) => {
+            const card = document.querySelector('.card');
+            const { clientX: mouseX, clientY: mouseY } = event;
+            const { innerWidth: windowWidth, innerHeight: windowHeight } = window;
+            const cardRect = card.getBoundingClientRect();
+            
+            // Check if mouse is within card boundaries
+            const mouseOverCard = mouseX >= cardRect.left && mouseX <= cardRect.right && mouseY >= cardRect.top && mouseY <= cardRect.bottom;
+        
+            if (mouseOverCard) {
+                // Calculate tilt values
+                const tiltX = (0.5 - (mouseY - cardRect.top) / cardRect.height) * 40; // Adjust 20 for tilt strength
+                const tiltY = ((mouseX - cardRect.left) / cardRect.width - 0.5) * -40; // Adjust -20 for tilt strength
+        
+                // Apply tilt to the card
+                card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+            } else {
+                // Reset tilt when not hovered
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+            }
+        });        
     </script>
 </body>
 

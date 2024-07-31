@@ -235,12 +235,15 @@ footer {
 }
 
 .typing-effect {
+    font-size: 2.5rem; /* Adjust as needed */
+    line-height: 1.2;
     display: inline-block;
-    border-right: 2px solid #ffffff;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    background: linear-gradient(to right, #292929, #ffffff); /* Dark blue to light blue */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;;
 }
+
 
 @keyframes typing {
     from {
@@ -373,7 +376,7 @@ footer {
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
     margin: 1em auto;
     padding: 0 1em;
-    width: 500px;
+    width: 400px;
     box-sizing: border-box;
 }
 
@@ -451,8 +454,8 @@ footer {
     text-decoration: none;
     color: #8d8d8d;
     font-weight: bolder;
-    left: 7.5em;
-    transition: all 0.5s ease, color 1.5s ease;
+    left: 53em;
+    top: 115em;
 }
 
 .invite:hover {
@@ -495,3 +498,25 @@ footer {
     font-size: 1.5em;
     border-radius: 5px;
 }
+
+.bottom-boxes {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* This will align boxes to the top */
+}
+
+.bottom-box {
+    flex: 1;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 22px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.typing-effect-container {
+    position: relative;
+    height: 4em; /* Adjust this value based on your font size and desired height */
+}
+
+
+

@@ -93,7 +93,7 @@ body {
 .card {
     padding: 1rem;
     padding-bottom: 2em;
-    width: 40rem;
+    width: 402rem;
     max-height: 34rem;
     max-height: 71%;
     background: rgba(0, 0, 0, 0.534);
@@ -126,6 +126,13 @@ body {
     object-fit: cover;
 }
 
+@media (max-width: 768px) {
+    .pfp img {
+        width: 100px; /* Adjust as needed */
+        height: 100px; /* Adjust as needed */
+    }
+}
+
 .username {
     position: relative;
     display: flex;
@@ -145,18 +152,34 @@ body {
     text-shadow: 0px 0px 16.5px #ffffff;
 }
 
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .username{
+        top: -6em; /* Move user up for smaller screens */
+        left: -2.5em; /* Move user up for smaller screens */
+    height: 100px; /* Adjust as needed */
+    }
+}
+
 .status {
     position: relative;
     display: flex;
     justify-content: left;
     align-items: left;
-    top: -10.2em;
+    top: -10em;
     left: 9.2rem;
     height: 1.2rem;
     margin-top: 0.8%;
     color: #f7f7f7ef;
     text-shadow: 0px 0px 2.5px #f7f7f7ef;
     font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .status {
+        top: -12em; /* Move badges up for smaller screens */
+        left: 9em; /* Move badges up for smaller screens */
+    }
 }
 
 .badges-container {
@@ -183,6 +206,13 @@ body {
     cursor: pointer;
     width: 22px;
     height: 22px;
+}
+
+@media (max-width: 768px) {
+    .badges {
+        top: 1.5em;
+        left: 12em;
+    }
 }
 
 .clickable-image {
@@ -328,30 +358,19 @@ body {
     display: none;
 }
 
-@media only screen and (max-width: 600px) {
-
-    .link {
-        width: 60%;
+@media (max-width: 768px) {
+    .card {
+        width: 230rem;
     }
 
-    .username {
-        left: -0.1em;
-    }
-
-    .links {
-        margin-left: 2rem;
-        margin-right: 2rem;
-        margin-top: 0;
+    .links-container {
+        margin-top: 4%;
     }
 }
 
 @media (max-width: 768px) {
     .card {
-        width: 23rem;
-    }
-
-    .links-container {
-        margin-top: 4%;
+        width: 20rem;
     }
 }
 
@@ -384,4 +403,12 @@ body {
         opacity: 0;
         transform: scale(2);
     }
+}
+
+html, body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
 }

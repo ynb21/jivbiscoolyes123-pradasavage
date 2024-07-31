@@ -27,7 +27,7 @@ body {
 
 body {
     background-color: var(--background);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
 }
 
 .container {
@@ -89,7 +89,7 @@ body {
 .card {
     padding: 1rem;
     padding-bottom: 2em;
-    height: 27rem;
+    height: 30rem;
     width: 40rem;
     max-height: 110rem;
     background: rgba(255, 255, 255, 0);
@@ -127,11 +127,20 @@ body {
     object-fit: cover;
 }
 
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .pfp img {
+        width: 100px; /* Adjust as needed */
+        height: 100px; /* Adjust as needed */
+    }
+}
+
+
 .username {
     position: relative;
     display: flex;
-    top: -8em;
-    left: -7.5em;
+    top: -7.5em;
+    left: -12.5em;
     text-align: left;
     justify-content: center;
     align-items: left;
@@ -145,18 +154,34 @@ body {
     text-shadow: 0px 0px 16.5px #f7f7f7;
 }
 
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .username{
+        top: -6.5em; /* Move user up for smaller screens */
+        left: -6em; /* Move user up for smaller screens */
+    height: 100px; /* Adjust as needed */
+    }
+}
+
 .status {
     position: relative;
     display: flex;
     justify-content: left;
     align-items: left;
-    top: -10.2em;
-    left: 9.2rem;
+    top: -9em;
+    left: 10rem;
     height: 1.2rem;
     margin-top: 0.8%;
     color: #f7f7f7ef;
     text-shadow: 0px 0px 2.5px #f7f7f7ef;
     font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .status {
+        top: -9em; /* Move badges up for smaller screens */
+        left: 8em; /* Move badges up for smaller screens */
+    }
 }
 
 .badges-container {
@@ -167,8 +192,8 @@ body {
 
 .badges {
     position: relative;
-    top: -12.9em;
-    left: -1.5em;
+    top: -12.3em; /* Default position */
+    left: 1.8em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,6 +201,14 @@ body {
     padding: 0.4rem;
     margin-top: 2%;
     gap: 0.2rem;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .badges {
+top: -12.3em; /* Default position */
+    left: 1.8em;
+    }
 }
 
 .badges svg {
@@ -211,8 +244,8 @@ body {
 
 .links-container {
     position: relative;
-    top: -7.5rem;
-    left: -.5rem;
+    top: -6.8rem;
+    left: -0.1rem;
     justify-content: center;
     display: flex;
     align-items: center;
@@ -370,47 +403,8 @@ body {
     transform: scale(0.8);
 }
 
-.profile-view-count {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    /* Positioned in the top-right corner */
-    background: none;
-    /* Removed background color */
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: default;
-    box-shadow: none;
-    /* Optional: remove any shadow if present */
-}
-
-.Viewcount {
-    position: absolute;
-    top: 80px;
-    /* Adjust this value to align with the badges */
-    right: 10px;
-    /* Positioned in the top-right corner */
-    background: none;
-    /* Removed background color */
-    color: #ff0000;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: default;
-    box-shadow: none;
-    /* Optional: remove any shadow if present */
-}
-
 .clickable-image {
-    top: 32em;
+    top: 100em;
     /* Adjust this value as needed */
     display: flex;
     justify-content: center;
@@ -572,4 +566,12 @@ body {
 /* For custom cursor */
 body {
     cursor: url('.././ico/cursors/swat.cur'), auto;
+}
+
+html, body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
 }
