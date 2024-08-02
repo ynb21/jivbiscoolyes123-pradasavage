@@ -225,13 +225,13 @@ body {
 .clickable-image img {
     max-width: 100%;
     height: 0px;
-    cursor: pointer;
     border: 0px solid #ffffff00;
     border-radius: 30px;
     transition: transform 0.1s ease-in-out;
 }
 
 .clickable-image img:hover {
+    cursor: url('../ico/cursors/7.cur'), auto;
     transform: scale(1.2);
 }
 
