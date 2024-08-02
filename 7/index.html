@@ -110,6 +110,7 @@
             margin-right: 3px;
             filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
         }
+
         .globe-s {
             scale: 1.3;
             margin-right: 10px;
@@ -202,6 +203,16 @@
             border-radius: 53px;
         }
 
+        .card:hover {
+            /* Apply tilt effect on hover */
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+
+        .container {
+            perspective: 1000px;
+            /* Adjust as needed for depth */
+        }
+
         @media (max-width: 768px) {
             .sparkles {
                 margin-bottom: 60px;
@@ -292,6 +303,10 @@
             opacity: 0;
             transform: scale(0.5);
             transition: opacity 0.4s ease, transform 0.4s ease, all 0.5s ease;
+            /* Add transition for tilt effect */
+            transition: transform 0.3s ease;
+            transform-style: preserve-3d;
+            /* Ensure 3D transformations are applied */
         }
 
         @media (max-width: 768px) {
@@ -368,7 +383,7 @@
 
                     <div class="links-container">
                         <div class="links" style="display: flex;">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -460,6 +475,30 @@
         window.onload = function () {
             typeWriter();
         };
+    </script>
+
+    <script>
+        document.addEventListener('mousemove', (event) => {
+            const card = document.querySelector('.card');
+            const { clientX: mouseX, clientY: mouseY } = event;
+            const { innerWidth: windowWidth, innerHeight: windowHeight } = window;
+            const cardRect = card.getBoundingClientRect();
+
+            // Check if mouse is within card boundaries
+            const mouseOverCard = mouseX >= cardRect.left && mouseX <= cardRect.right && mouseY >= cardRect.top && mouseY <= cardRect.bottom;
+
+            if (mouseOverCard) {
+                // Calculate tilt values
+                const tiltX = (0.5 - (mouseY - cardRect.top) / cardRect.height) * 40; // Adjust 20 for tilt strength
+                const tiltY = ((mouseX - cardRect.left) / cardRect.width - 0.5) * -40; // Adjust -20 for tilt strength
+
+                // Apply tilt to the card
+                card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+            } else {
+                // Reset tilt when not hovered
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+            }
+        });        
     </script>
 </body>
 
