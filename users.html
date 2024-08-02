@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,14 @@
     <link rel="icon" type="image/x-icon" href="biolinks/ico/logo.png">
     <title>Vulify Users</title>
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
             overflow: auto;
         }
+
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #000000, #000000f3);
@@ -22,11 +25,24 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        .search-container, .header-container {
-            opacity: 0; 
-            transform: translateY(20px); 
-            animation: hoverUp 0.6s forwards; 
-            z-index: 1; 
+
+        .container {
+            overflow: hidden;
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .search-container,
+        .header-container {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: hoverUp 0.6s forwards;
+            z-index: 1;
         }
 
         .search-container input:focus {
@@ -38,6 +54,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -45,58 +62,63 @@
         }
 
         .search-container {
-            max-width: 400px; 
-            margin: 20px auto; 
+            max-width: 400px;
+            margin: 20px auto;
             padding: 10px;
             text-align: center;
         }
 
         .search-container p {
-            margin: 0 0 10px; 
-            font-size: 1em; 
+            margin: 0 0 10px;
+            font-size: 1em;
             color: #fff;
         }
 
         .search-container input {
-            width: 100%; 
-            max-width: 300px; 
+            width: 100%;
+            max-width: 300px;
             padding: 10px;
-            border: 2px solid #ffffff; 
-            border-radius: 10px; 
-            font-size: 1em; 
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            font-size: 1em;
             color: #ffffff;
             background-color: #ffffff00;
-            box-sizing: border-box; 
-            margin: 0 auto; 
-            display: block; 
+            box-sizing: border-box;
+            margin: 0 auto;
+            display: block;
         }
+
         .container {
             max-width: 600px;
             margin: 20px auto;
-            background-color: rgba(255, 0, 0, 0); 
+            background-color: rgba(255, 0, 0, 0);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0); 
-            opacity: 0; 
-            transform: translateY(20px); 
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+            opacity: 0;
+            transform: translateY(20px);
             animation: popUp 0.6s forwards;
             overflow-y: auto;
             max-height: calc(100vh - 40px);
         }
+
         @keyframes popUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         header {
             text-align: center;
             margin: 0 auto;
         }
+
         .logo {
             display: block;
             margin: 0 auto;
@@ -104,39 +126,47 @@
             width: 100%;
             height: auto;
         }
+
         .logo-container {
-            animation: hoverUp 0.6s forwards; 
+            animation: hoverUp 0.6s forwards;
         }
+
         .logo-text {
-            font-size: 1.2em; 
+            font-size: 1.2em;
             color: #fff;
             margin-top: 10px;
-            font-family: 'Arial', sans-serif; 
+            font-family: 'Arial', sans-serif;
         }
+
         h1 {
             text-align: center;
             color: #fff;
         }
+
         ul {
             list-style-type: none;
             padding: 0;
         }
+
         .rank {
             margin-bottom: 20px;
         }
+
         .rank h2 {
             text-align: center;
-            color: #fff; 
+            color: #fff;
             font-size: 1.2em;
             margin-bottom: 10px;
         }
+
         .rank ul {
             padding: 0;
         }
+
         .rank li {
             padding: 10px;
             margin-bottom: 10px;
-            border-radius: 5px; 
+            border-radius: 5px;
             cursor: pointer;
             width: 200;
             transition: background-color 0.3s ease, transform 0.3s ease;
@@ -147,37 +177,43 @@
             position: relative;
             font-size: 0.9em;
         }
+
         .owner li {
             cursor: default;
             width: 200;
-            background-color: rgba(68, 68, 68, 0); 
+            background-color: rgba(68, 68, 68, 0);
             border: 2px solid #ffdd0000;
         }
+
         .premium li {
             cursor: default;
             width: 200;
             background-color: rgba(68, 68, 68, 0);
-            border: 2px solid #ffdd0000; 
+            border: 2px solid #ffdd0000;
         }
+
         .normal li {
             cursor: default;
             align-items: center;
             align-content: center;
             left: 10em;
             width: 20em;
-            background-color: rgba(68, 68, 68, 0); 
-            border: 2px solid #ffdd0000; 
+            background-color: rgba(68, 68, 68, 0);
+            border: 2px solid #ffdd0000;
         }
+
         .rank li:hover {
             cursor: default;
             background-color: rgba(85, 85, 85, 0);
             transform: scale(1.05);
         }
+
         .rank li:hover .id-text {
             cursor: default;
-            opacity: 1; 
+            opacity: 1;
             transform: translateX(0);
         }
+
         a {
             cursor: pointer;
             color: #fff;
@@ -185,16 +221,18 @@
             display: inline-block;
             font-size: 1.1em;
         }
+
         .glow-text {
             font-family: 'Garamond', serif;
             font-size: 1.5em;
-            color: #ffffff; 
+            color: #ffffff;
             text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff;
             position: relative;
             display: inline-block;
         }
+
         .premium-text {
-            font-family: 'Garamond', serif; 
+            font-family: 'Garamond', serif;
             font-size: 1.5em;
             color: #ffee00;
             text-shadow: 0 0 5px #ffee00, 0 0 10px #ffee00, 0 0 15px #ffee00;
@@ -204,87 +242,87 @@
 
         .red {
             display: inline-block;
-            background-image: url('biolinks/glitter/red.gif'); 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat; 
-            color: #fff; 
-            font-family: 'Garamond', serif; 
+            background-image: url('biolinks/glitter/red.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            font-family: 'Garamond', serif;
             font-size: 1.5em;
             color: #ff0d0d;
-            text-shadow: 0 0 5px #a30000, 0 0 10px #a30000, 0 0 15px #a30000; 
+            text-shadow: 0 0 5px #a30000, 0 0 10px #a30000, 0 0 15px #a30000;
             position: relative;
             display: inline-block;
             margin-bottom: -1.3rem;
-            padding: 10px; 
+            padding: 10px;
             font-size: 1.5em;
-            border-radius: 5px; 
+            border-radius: 5px;
         }
 
         .gred {
             display: inline-block;
-            background-image: url('biolinks/glitter/gold.gif'); 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat; 
-            color: #fff; 
-            font-family: 'Garamond', serif; 
+            background-image: url('biolinks/glitter/gold.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            font-family: 'Garamond', serif;
             font-size: 1.5em;
             color: #d30000;
-            text-shadow: 0 0 5px #a30000, 0 0 10px #a30000, 0 0 15px #a30000; 
+            text-shadow: 0 0 5px #a30000, 0 0 10px #a30000, 0 0 15px #a30000;
             position: relative;
             display: inline-block;
             margin-bottom: -1.3rem;
-            padding: 10px; 
+            padding: 10px;
             font-size: 1.5em;
-            border-radius: 5px; 
-        }  
+            border-radius: 5px;
+        }
 
         .gold {
-            display: inline-block; 
-            background-image: url('biolinks/glitter/gold.gif'); 
-            background-size: cover; 
+            display: inline-block;
+            background-image: url('biolinks/glitter/gold.gif');
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            color: #fff; 
+            color: #fff;
             font-family: 'Garamond', serif;
             font-size: 1.5em;
-            color: #fffb00; 
-            text-shadow: 0 0 5px #fffb00, 0 0 10px #fffb00, 0 0 15px #fffb00; 
+            color: #fffb00;
+            text-shadow: 0 0 5px #fffb00, 0 0 10px #fffb00, 0 0 15px #fffb00;
             position: relative;
             display: inline-block;
             margin-bottom: -1.3rem;
-            padding: 10px; 
+            padding: 10px;
             font-size: 1.5em;
-            border-radius: 5px; 
-        }   
+            border-radius: 5px;
+        }
 
         .blue {
-            display: inline-block; 
-            background-image: url('biolinks/glitter/blue.gif'); 
-            background-size: cover; 
+            display: inline-block;
+            background-image: url('biolinks/glitter/blue.gif');
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            color: #fff; 
+            color: #fff;
             font-family: 'Garamond', serif;
             font-size: 1.5em;
-            color: #002fff; 
-            text-shadow: 0 0 5px #002fff, 0 0 10px #002fff, 0 0 15px #002fff; 
+            color: #002fff;
+            text-shadow: 0 0 5px #002fff, 0 0 10px #002fff, 0 0 15px #002fff;
             position: relative;
             display: inline-block;
             margin-bottom: -1.3rem;
-            padding: 10px; 
+            padding: 10px;
             font-size: 1.5em;
-            border-radius: 5px; 
-        }  
+            border-radius: 5px;
+        }
 
         .white {
             display: inline-block;
             background-image: url('biolinks/glitter/white.gif');
             background-size: cover;
-            background-position: center; 
-            background-repeat: no-repeat; 
-            color: #fff; 
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
             font-family: 'Garamond', serif;
             font-size: 1.5em;
             color: #ffffff;
@@ -293,89 +331,92 @@
             display: inline-block;
             margin-bottom: -1.3rem;
             padding: 10px;
-            font-size: 1.5em; 
-            border-radius: 5px; 
+            font-size: 1.5em;
+            border-radius: 5px;
         }
 
         .purple {
-            display: inline-block; 
-            background-image: url('biolinks/glitter/purple.gif'); 
+            display: inline-block;
+            background-image: url('biolinks/glitter/purple.gif');
             background-size: cover;
-            background-position: center; 
-            background-repeat: no-repeat; 
-            color: #7a00b3; 
-            font-family: 'Garamond', serif; 
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #7a00b3;
+            font-family: 'Garamond', serif;
             font-size: 1.5em;
             color: #7a00b3;
-            text-shadow: 0 0 5px #7a00b3, 0 0 10px #7a00b3, 0 0 15px #7a00b3; 
+            text-shadow: 0 0 5px #7a00b3, 0 0 10px #7a00b3, 0 0 15px #7a00b3;
             position: relative;
             display: inline-block;
             margin-bottom: -1.3rem;
-            padding: 10px; 
-            font-size: 1.5em; 
-            border-radius: 5px; 
-        }   
+            padding: 10px;
+            font-size: 1.5em;
+            border-radius: 5px;
+        }
 
         .rainbow {
-            display: inline-block; 
-            background-image: url('biolinks/glitter/rainbow.gif'); 
+            display: inline-block;
+            background-image: url('biolinks/glitter/rainbow.gif');
             background-size: cover;
-            background-position: center; 
-            background-repeat: no-repeat; 
-            color: #fff; 
-            font-family: 'Garamond', serif; 
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            font-family: 'Garamond', serif;
             font-size: 1.5em;
             color: #fff;
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff; 
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
             position: relative;
             display: inline-block;
             margin-bottom: -1.3rem;
-            padding: 10px; 
-            font-size: 1.5em; 
-            border-radius: 5px; 
-        }   
-        
+            padding: 10px;
+            font-size: 1.5em;
+            border-radius: 5px;
+        }
+
         .back-to-home {
             position: fixed;
-            top: 20px; 
+            top: 20px;
             left: 20px;
             background-color: #ff990000;
             color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
-            font-size: 1em;  
+            font-size: 1em;
             font-family: Arial, sans-serif;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s ease, transform 0.3s ease; 
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
+
         .back-to-home:hover {
-            background-color: #2929298c; 
-            transform: scale(1.05); 
+            background-color: #2929298c;
+            transform: scale(1.05);
         }
+
         .no-user-message {
-            display: none; 
+            display: none;
             text-align: center;
             font-size: 1.2em;
             color: #fff;
             margin-top: 20px;
         }
+
         .hidden {
-            display: none; 
+            display: none;
         }
 
         .id-text {
-            font-size: 0.8em; 
-            color: #ccc; 
-            margin-top: 5px; 
+            font-size: 0.8em;
+            color: #ccc;
+            margin-top: 5px;
             position: absolute;
-            left: -60em; 
+            left: -60em;
             top: 10px;
-            opacity: 0; 
+            opacity: 0;
             transition: opacity 0.3s ease;
-            background-color: rgba(0, 0, 0, 0); 
-            padding: 5px; 
-            border-radius: 5px; 
+            background-color: rgba(0, 0, 0, 0);
+            padding: 5px;
+            border-radius: 5px;
         }
 
         .title {
@@ -410,12 +451,9 @@
             border-radius: 10px;
             max-width: 10em;
         }
-
-        
-
-        
     </style>
 </head>
+
 <body>
     <header class="header-container">
         <img src="biolinks/ico/logo.png" alt="Logo" class="logo">
@@ -438,7 +476,7 @@
                 <li>
                     <a href="https://vulify.lol/risk" target="_blank" class="red">Risk</a>
                     <div class="id-text">id: 1</div>
-                </li>                
+                </li>
                 <li>
                     <a href="https://vulify.lol/dns" target="_blank" class="red">DNS</a>
                     <div class="id-text">id: 2</div>
@@ -494,9 +532,9 @@
             </ul>
         </div>
     </div>
-    
+
     <script>
-        document.getElementById('search').addEventListener('input', function() {
+        document.getElementById('search').addEventListener('input', function () {
             let searchQuery = this.value.toLowerCase();
             let hasResults = false;
 
@@ -530,4 +568,5 @@
         });
     </script>
 </body>
+
 </html>
