@@ -28,7 +28,7 @@ body {
 body {
     background-color: var(--background);
     backdrop-filter: blur(3px);
-    cursor: url('../ico/cursors/7.cur'), auto;
+    cursor: url('../ico/cursors/15eyfa.cur'), auto;
 }
 
 
@@ -231,7 +231,7 @@ body {
 }
 
 .clickable-image img:hover {
-    cursor: url('../ico/cursors/7.cur'), auto;
+    cursor: url('../ico/cursors/15eyfa.cur'), auto;
     transform: scale(1.2);
 }
 
@@ -306,7 +306,7 @@ body {
     z-index: 100;
     position: relative;
     display: inline-block;
-    cursor: url('../ico/cursors/7.cur'), auto;
+    cursor: url('../ico/cursors/15eyfa.cur'), auto;
 }
 
 .tooltip:before {
