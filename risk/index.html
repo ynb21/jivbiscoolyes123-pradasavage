@@ -273,8 +273,10 @@
         const overlay = document.getElementById("overlay");
         const card = document.querySelector(".card");
         const viewCountElem = document.getElementById("view-count");
+        
+        let hasInteracted = false;
 
-        video.volume = 0.5;
+        audio.volume = 0;
 
         audioControl.addEventListener("click", () => {
             if (video.muted) {
@@ -286,29 +288,33 @@
             }
         });
 
-        document.getElementById('overlay').addEventListener('click', function () {
-            overlay.style.display = 'none';
+        overlay.addEventListener("click", () => {
+            hasInteracted = true;
+            video.muted = false;
             video.style.display = 'block';
             video.play().catch(function (error) {
                 console.log("Autoplay prevented: ", error);
             });
-            video.muted = false;
+            overlay.style.display = "none";
             card.classList.add("show");
             incrementViewCount();
         });
+
 
         document.getElementById('background-video').addEventListener('touchstart', function (e) {
             e.preventDefault();
         });
 
+
         document.addEventListener("visibilitychange", function () {
             if (document.hidden) {
                 video.pause();
-            } else {
-                video.play();
+            } else if (hasInteracted) {
+                video.play().catch(function (error) {
+                    console.log("Autoplay prevented: ", error);
+                });
             }
         });
-
         function setVolume(level) {
             if (level >= 0 && level <= 1) {
                 video.volume = level;
