@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Owner @ Vulify.lol" />
     <meta property="og:image" content="https://vulify.lol/risk/pfp/risk.png" />
     <link href="../biolinks/css/risk.css" rel="stylesheet">
@@ -89,11 +89,14 @@
 
         #background-video {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
             z-index: -1;
+            transform: translateX(-50%) translateY(-50%);
             object-fit: cover;
         }
 
@@ -144,8 +147,8 @@
     <div id="overlay">
         〔#1 Cleanest Bio | vulify〕
     </div>
-    <video id="background-video" muted loop>
-        <source src="./pfp/risk.mp4" type="video/mp4">
+    <video id="background-video" muted loop playsinline webkit-playsinline>
+        <source src="./pfp/risk_conv.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <main>
@@ -286,10 +289,24 @@
         document.getElementById('overlay').addEventListener('click', function () {
             overlay.style.display = 'none';
             video.style.display = 'block';
-            video.play();
+            video.play().catch(function (error) {
+                console.log("Autoplay prevented: ", error);
+            });
             video.muted = false;
             card.classList.add("show");
             incrementViewCount();
+        });
+
+        document.getElementById('background-video').addEventListener('touchstart', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                video.pause();
+            } else {
+                video.play();
+            }
         });
 
         function setVolume(level) {
