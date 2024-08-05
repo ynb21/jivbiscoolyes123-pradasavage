@@ -275,8 +275,9 @@
         const viewCountElem = document.getElementById("view-count");
         
         let hasInteracted = false;
+        let hasPlaying = false;
 
-        audio.volume = 0;
+        video.volume = 0;
 
         audioControl.addEventListener("click", () => {
             if (video.muted) {
@@ -308,11 +309,16 @@
 
         document.addEventListener("visibilitychange", function () {
             if (document.hidden) {
-                video.pause();
-            } else if (hasInteracted) {
-                video.play().catch(function (error) {
-                    console.log("Autoplay prevented: ", error);
-                });
+                wasPlaying != video.paused;
+                if (wasPlaying) {
+                    video.pause();
+                }
+            } else {
+                if (hasInteracted && wasPlaying) {
+                    video.play().catch(function (error) {
+                        console.log("Autoplay prevented: ", error);
+                    });
+                }
             }
         });
         function setVolume(level) {
