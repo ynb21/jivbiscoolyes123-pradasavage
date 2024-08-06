@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="founder / owner @ vulify.lol"/>
     <meta property="og:image" content="https://vulify.lol/dns/pfp/dns.gif" />
-    <link href="../biolinks/css/swat.css" rel="stylesheet">
+    <link href="../biolinks/css/dns.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="..biolinks/ico/logo.png">
     <title>DNS</title>
     <style>
@@ -108,12 +108,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             margin: 0;
             overflow: hidden;
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
+            height: 100vh;
+        }
+
+        #background-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
         }
     
         canvas {
@@ -276,7 +289,7 @@
 
         @keyframes neon {
             0% {
-                border: 2px solid #0a0a0a
+                border: 2px solid #0a0a0a00
             }
 
             50% {
@@ -284,7 +297,7 @@
             }
 
             100% {
-                border: 2px solid #0a0a0a
+                border: 2px solid #0a0a0a00
             }
         }
         
@@ -388,6 +401,10 @@
                             fill-rule="evenodd" />
                     </svg>
                 </a>
+                <video id="background-video" muted loop playsinline webkit-playsinline>
+                    <source src="./pfp/dns.mp4" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
                 <audio id="myAudio" loop muted>
                     <source src="audio/dns.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
@@ -403,7 +420,7 @@
                         <span id="view-count">0 Views</span>
                     </div>
                     <div class="pfp">
-                        <img src="pfp/dns.gif" alt="Profile Picture">
+                        <img src="pfp/dns.jpg" alt="Profile Picture">
                     </div>
                     <div class="username">
                         <a class="glowing-text">@noted</a>
@@ -499,11 +516,15 @@
 
     <script src="effects/cursor.js"></script>
     <script>
+        const video = document.getElementById("background-video");
         const audio = document.getElementById("myAudio");
         const audioControl = document.getElementById("audio-control");
         const overlay = document.getElementById("overlay");
         const card = document.querySelector(".card");
         const viewCountElem = document.getElementById("view-count");
+
+        let hasInteracted = false;
+        let hasPlaying = false;
 
         audio.volume = 0;
 
@@ -538,9 +559,33 @@
         overlay.addEventListener("click", () => {
             audio.muted = false;
             audio.play();
+            video.style.display = 'block';
+            video.play().catch(function (error) {
+                console.log("Autoplay prevented: ", error);
+            });
             overlay.style.display = "none";
             card.classList.add("show");
             incrementViewCount();
+        });
+
+        document.getElementById('background-video').addEventListener('touchstart', function (e) {
+            e.preventDefault();
+        });
+
+
+        document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                wasPlaying != video.paused;
+                if (wasPlaying) {
+                    video.pause();
+                }
+            } else {
+                if (hasInteracted && wasPlaying) {
+                    video.play().catch(function (error) {
+                        console.log("Autoplay prevented: ", error);
+                    });
+                }
+            }
         });
 
         function setVolume(level) {
