@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="founder / owner @ vulify.lol"/>
-    <meta property="og:image" content="https://vulify.lol/dns/pfp/dns.gif" />
+    <meta property="og:image" content="https://vulify.lol/dns/pfp/dns.jpg" />
     <link href="../biolinks/css/dns.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="..biolinks/ico/logo.png">
     <title>DNS</title>
@@ -557,6 +557,7 @@
         });
 
         overlay.addEventListener("click", () => {
+            hasInteracted = true;
             audio.muted = false;
             audio.play();
             video.style.display = 'block';
