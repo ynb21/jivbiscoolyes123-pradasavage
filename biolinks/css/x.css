@@ -227,6 +227,11 @@ body {
         width: 60%;
     }
 
+    .badges {
+        left: 3.62em;
+        top: -13.7em
+    }
+
     .username {
         left: -0.1em;
     }
